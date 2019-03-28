@@ -34,9 +34,9 @@ module.exports = (db) => {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
-      res.render('dashboard', user);
+      res.render('landing', user);
     } else {
-      res.render('dashboard');
+      res.render('landing');
     }
   });
 

@@ -1,0 +1,32 @@
+{{> nav/nav-block}}
+
+<div id="main-container" class="container">
+  <div class="jumbotron text-center header-wrap" align="center">
+    <p class="lead">Welcome to <strong>Eat Me</strong></p>
+    <hr class="my-4">
+    <div>
+        <ul>
+            <li>
+                <div class="g-signin2" style="display: inline-block" data-onsuccess="onSignIn"></div>
+            </li>
+            {{#if isloggedin}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="login-modal">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register" data-register={{register}}>Register</a>
+                </li>
+            {{/if}}
+        </ul>
+    </div>
+  </div>
+</div>
+
+{{> modal/login-block}}
