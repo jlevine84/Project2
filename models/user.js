@@ -63,5 +63,18 @@ module.exports = function (sequelize, DataTypes) {
     return values;
   };
 
+  // Associations: Recipes and Comments
+  User.associate = (models) => {
+    User.hasMany(models.Recipe, {
+      onDelete: 'cascade'
+    });
+  };
+
+  User.associate = (models) => {
+    User.hasMany(models.Comment, {
+      onDelete: 'cascade'
+    });
+  };
+
   return User;
 };
