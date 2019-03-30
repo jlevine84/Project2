@@ -48,7 +48,7 @@ module.exports = (db) => {
       };
       res.render('recipe', user);
     } else {
-      res.render('dashboard');
+      res.render('recipe');
     }
   });
 
@@ -60,7 +60,7 @@ module.exports = (db) => {
       };
       res.render('createRecipe', user);
     } else {
-      res.render('dashboard');
+      res.render('createRecipe');
     }
   });
 
