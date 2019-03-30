@@ -40,6 +40,30 @@ module.exports = (db) => {
     }
   });
 
+  router.get('/recipe', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('recipe', user);
+    } else {
+      res.render('dashboard');
+    }
+  });
+
+  router.get('/createRecipe', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('createRecipe', user);
+    } else {
+      res.render('dashboard');
+    }
+  });
+
   router.get('/dashboard', (req, res) => {
     if (req.isAuthenticated()) {
       const user = {
@@ -58,7 +82,9 @@ module.exports = (db) => {
       if (err) {
         return next(err);
       }
-      res.clearCookie('connect.sid', { path: '/' });
+      res.clearCookie('connect.sid', {
+        path: '/'
+      });
       res.redirect('/');
     });
   });
