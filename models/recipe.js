@@ -27,6 +27,13 @@ module.exports = (sequelize, DataTypes) => {
     mediaLink: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    summarySection: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 500]
+      }
     }
   });
 
