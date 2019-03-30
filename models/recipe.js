@@ -15,6 +15,18 @@ module.exports = (sequelize, DataTypes) => {
     instructions: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    isPublic: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    tags: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    mediaLink: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 
