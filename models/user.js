@@ -1,46 +1,63 @@
 const bcrypt = require('bcrypt');
 
 module.exports = function (sequelize, DataTypes) {
-  let User = sequelize.define('User', {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    firstName: {
-      type: DataTypes.STRING
-    },
-    lastName: {
-      type: DataTypes.STRING
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: {
-        args: true,
-        msg: 'User already exists'
+  let User = sequelize.define(
+    'User',
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+      },
+      firstName: {
+        type: DataTypes.STRING(30),
+        allowNull: false
+      },
+      lastName: {
+        type: DataTypes.STRING(30),
+        allowNull: false
+      },
+      email: {
+        type: DataTypes.STRING(100),
+        allowNull: false,
+        unique: {
+          args: true,
+          msg: 'User already exists'
+        }
+      },
+      password: {
+        type: DataTypes.STRING(30),
+        allowNull: false
+      },
+      isAdmin: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      },
+      prefersMetric: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      },
+      aboutMeSection: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        validate: {
+          len: [1, 255]
+        }
       }
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    isAdmin: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
-    }
-  }, {
-    timestamps: true,
-    hooks: {
-      beforeValidate: function (user) {
-        if (user.changed('password')) {
-          return bcrypt.hash(user.password, 10).then((password) => {
-            user.password = password;
-          });
+    {
+      timestamps: true,
+      hooks: {
+        beforeValidate: function (user) {
+          if (user.changed('password')) {
+            return bcrypt.hash(user.password, 10).then((password) => {
+              user.password = password;
+            });
+          }
         }
       }
     }
-  });
+  );
 
   // This will check if an unhashed password can be compared to the hashed password stored in our database
   User.prototype.validPassword = function (password) {
