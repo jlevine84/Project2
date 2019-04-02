@@ -37,19 +37,21 @@
 <ul class="collection with-header">
     <li class="collection-header"><h4>Ingredients</h4></li>
     {{#each ingredients}}
-    <li class="collection-item"><div>{{material}}<a href="#!" class="secondary-content"><i class="material-icons">spa</i></a></div></li>
+    <li class="collection-item"><div>{{quantity}} {{material}}<a href="#!" class="secondary-content"><i class="material-icons">spa</i></a></div></li>
     {{/each}}
 </ul>
 
 
 <ul class="collection with-header">
     <li class="collection-header"><h4>Instructions</h4></li>
+    {{#each recipes}}
     <li class="collection-item">
         <span class="title">Step 1</span>
-        <p>First cut up the chicken into bite-sized pieces and mince the garlic.<br>
-            Add these to a ziploc bag with the soy sauce and refrigerate for at least an hour.
+        <p>
+            {{instructions}}
         </p>
     </li>
+    {{/each}}
 </ul>
 
 </div>
