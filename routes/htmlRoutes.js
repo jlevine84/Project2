@@ -113,5 +113,18 @@ module.exports = (db) => {
     });
   });
 
+  router.post('/ginfo', (req, res) => {
+    db.User.findOrCreate({
+      where: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email
+      }
+    }).then(result => {
+      console.log(result);
+      res.json(result);
+    });
+  });
+
   return router;
 };
