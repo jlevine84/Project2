@@ -18,174 +18,51 @@
   
 <div class="row">
 
-<div class="col s12 l3">
-  <div class="card add">
-  <div class="card-image">
-    <img src="/assets/img/kitchen.jpg" class="add-image">
-    <span class="card-title">Add a recipe</span>
-    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+  <div class="col s12 l3">
+    <div class="card add">
+    <div class="card-image">
+      <img src="/assets/img/kitchen.jpg" class="add-image">
+      <span class="card-title">Add a recipe</span>
+      <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+    </div>
+    <div class="card-content">
+      <p>Click the button with the "+" above to begin adding your favorite recipes to our site for others to enjoy.</p>
+    </div>
+    </div>
   </div>
-  <div class="card-content">
-    <p>Click the button with the "+" above to begin adding your favorite recipes to our site for others to enjoy.</p>
-  </div>
-  </div>
-</div>
-  
+
+{{#each recipes}}
 <div class="card col l3 s6">
   <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="/assets/img/kebab.jpg">
+    <img class="activator" src="{{mediaLink}}">
   </div>
   <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">Shish Kebab<i class="material-icons right">more_vert</i></span>
+    <span class="card-title activator grey-text text-darken-4">{{name}}<i class="material-icons right">more_vert</i></span>
   </div>
   <div class="card-reveal">
-    <span class="card-title summary grey-text text-darken-4">Shish Kebab<i class="material-icons right">close</i></span>
+    <span class="card-title summary grey-text text-darken-4">{{name}}<i class="material-icons right">close</i></span>
     <ul>
-      <li>Prep Time: 1 hour</li>
-      <li>Cook Time: 20 Minutes</li>
-      <li>Difficulty Rating: 1</li>
+      <li>Prep Time: {{time}}</li>
+      <li>Cook Time: {{cookTime}}</li>
+      <li>Difficulty Rating: {{difficulty}}</li>
       <li>Ingredients:
         <ol>
-          <li>Chicken</li>
-          <li>Soy Sauce</li>
-          <li>Bell Peppers</li>
-          <li>Tomatoes</li>
-          <li>Garlic</li>
+          {{#each ingredients}}
+          <li>{{material}}</li>
+          {{/each}}
         </ol>
       </li>
     </ul>
   </div>
-</div>
-  
-<div class="card col l3 s6">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="/assets/img/bibimbap.jpg">
-  </div>
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">Bibimbap<i class="material-icons right">more_vert</i></span>
-  </div>
-  <div class="card-reveal s2">
-      <span class="card-title summary grey-text text-darken-4">Bibimbap<i class="material-icons right">close</i></span>
-      <ul>
-        <li>Prep Time: 1 hour</li>
-        <li>Cook Time: 20 Minutes</li>
-        <li>Difficulty Rating: 1</li>
-        <li>Ingredients:
-          <ol>
-            <li>Chicken</li>
-            <li>Soy Sauce</li>
-            <li>Bell Peppers</li>
-            <li>Tomatoes</li>
-            <li>Garlic</li>
-          </ol>
-        </li>
-      </ul>
+  <div class="card-action" id={{@index}}>
+    <a href="#">Check out the recipe!</a>
   </div>
 </div>
+{{/each}}
+
+
   
-<div class="card col l3 s6">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="/assets/img/salmon.jpg">
-  </div>
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">Baked Salmon<i class="material-icons right">more_vert</i></span>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title summary grey-text text-darken-4">Baked Salmon<i class="material-icons right">close</i></span>
-    <ul>
-      <li>Prep Time: 1 hour</li>
-      <li>Cook Time: 20 Minutes</li>
-      <li>Difficulty Rating: 1</li>
-      <li>Ingredients:
-        <ol>
-          <li>Chicken</li>
-          <li>Soy Sauce</li>
-          <li>Bell Peppers</li>
-          <li>Tomatoes</li>
-          <li>Garlic</li>
-        </ol>
-      </li>
-    </ul>
-  </div>
-</div>
-  
-<div class="card col l3 s6">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="/assets/img/steak.jpg">
-  </div>
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">Steak<i class="material-icons right">more_vert</i></span>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title summary grey-text text-darken-4">Steak<i class="material-icons right">close</i></span>
-    <ul>
-      <li>Prep Time: 1 hour</li>
-      <li>Cook Time: 20 Minutes</li>
-      <li>Difficulty Rating: 1</li>
-      <li>Ingredients:
-        <ol>
-          <li>Chicken</li>
-          <li>Soy Sauce</li>
-          <li>Bell Peppers</li>
-          <li>Tomatoes</li>
-          <li>Garlic</li>
-        </ol>
-      </li>
-    </ul>
-  </div>
-</div>
-  
-<div class="card col l3 s6">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="/assets/img/tacos.jpg">
-  </div>
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">Tacos<i class="material-icons right">more_vert</i></span>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title summary grey-text text-darken-4">Tacos<i class="material-icons right">close</i></span>
-    <ul>
-      <li>Prep Time: 1 hour</li>
-      <li>Cook Time: 20 Minutes</li>
-      <li>Difficulty Rating: 1</li>
-      <li>Ingredients:
-        <ol>
-          <li>Chicken</li>
-          <li>Soy Sauce</li>
-          <li>Bell Peppers</li>
-          <li>Tomatoes</li>
-          <li>Garlic</li>
-        </ol>
-      </li>
-    </ul>
-  </div>
-</div>
-  
-<div class="card col l3 s6">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="/assets/img/bread.jpg">
-  </div>
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">Rye Bread<i class="material-icons right">more_vert</i></span>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title summary grey-text text-darken-4">Rye Bread<i class="material-icons right">close</i></span>
-    <ul>
-      <li>Prep Time: 1 hour</li>
-      <li>Cook Time: 20 Minutes</li>
-      <li>Difficulty Rating: 1</li>
-      <li>Ingredients:
-          <ol>
-            <li>Chicken</li>
-            <li>Soy Sauce</li>
-            <li>Bell Peppers</li>
-            <li>Tomatoes</li>
-            <li>Garlic</li>
-          </ol>
-      </li>
-    </ul>
-  </div>
-  </div>
+
 </div>
   
 <footer class="page-footer">
@@ -216,3 +93,13 @@
         </div>
     </div>
 </footer>
+
+<script>
+  $('.card-action').on('click', function(){
+    console.log(this.id)
+    window.location = "/recipe/"+(parseInt(this.id)+1);
+  });
+  $('.btn-floating').on('click', function(){
+    window.location = "/createRecipe/";
+  });
+</script>

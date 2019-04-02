@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   // Create Table for Recipes
-  let Recipe = sequelize.define('Recipe', {
+  const Recipe = sequelize.define('Recipe', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     summarySection: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
       validate: {
         len: [1, 500]
