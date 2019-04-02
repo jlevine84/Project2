@@ -10,15 +10,15 @@ module.exports = function (sequelize, DataTypes) {
         primaryKey: true
       },
       firstName: {
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING,
         allowNull: false
       },
       lastName: {
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING,
         allowNull: false
       },
       email: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING,
         allowNull: false,
         unique: {
           args: true,
@@ -26,8 +26,7 @@ module.exports = function (sequelize, DataTypes) {
         }
       },
       password: {
-        type: DataTypes.STRING(30),
-        allowNull: false
+        type: DataTypes.STRING
       },
       isAdmin: {
         type: DataTypes.BOOLEAN,
@@ -38,7 +37,7 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: false
       },
       aboutMeSection: {
-        type: DataTypes.STRING(255),
+        type: DataTypes.STRING,
         allowNull: true,
         validate: {
           len: [1, 255]
