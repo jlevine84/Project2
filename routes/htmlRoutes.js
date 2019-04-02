@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const models = require('../models');
 
 module.exports = (db) => {
   router.get('/register', (req, res) => {
@@ -40,16 +41,25 @@ module.exports = (db) => {
     }
   });
 
-  router.get('/recipe', (req, res) => {
-    if (req.isAuthenticated()) {
-      const user = {
-        user: req.session.passport.user,
-        isloggedin: req.isAuthenticated()
-      };
-      res.render('recipe', user);
-    } else {
-      res.render('recipe');
-    }
+  router.get('/recipe/:id', (req, res) => {
+    models.Recipe.findAll({
+      where: {
+        id: req.params.id
+      }
+    }).then((recipeInfo) => {
+      var recipe = recipeInfo;
+      models.Ingredient.findAll({
+        where: {
+          RecipeId: req.params.id
+        }
+      }).then((data) => {
+        const obj = {
+          recipes: recipe,
+          ingredients: data
+        };
+        res.render('recipe', obj);
+      });
+    });
   });
 
   router.get('/createRecipe', (req, res) => {
@@ -72,7 +82,21 @@ module.exports = (db) => {
       };
       res.render('dashboard', user);
     } else {
-      res.render('dashboard');
+      models.Recipe.findAll({
+      }).then((recipeInfo) => {
+        var recipe = recipeInfo;
+        models.Ingredient.findAll({
+          where: {
+            RecipeId: recipe[0].dataValues.id
+          }
+        }).then((data) => {
+          const obj = {
+            recipes: recipe,
+            ingredients: data
+          };
+          res.render('dashboard', obj);
+        });
+      });
     }
   });
 
