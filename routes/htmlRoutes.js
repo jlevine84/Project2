@@ -82,7 +82,18 @@ module.exports = (db) => {
       };
       res.render('dashboard', user);
     } else {
-      res.render('dashboard');
+      models.Recipe.findAll({
+      }).then((recipeInfo) => {
+        var recipe = recipeInfo;
+        models.Ingredient.findAll({
+        }).then((data) => {
+          const obj = {
+            recipes: recipe,
+            ingredients: data
+          };
+          res.render('dashboard', obj);
+        });
+      });
     }
   });
 
