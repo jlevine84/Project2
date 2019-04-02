@@ -225,7 +225,16 @@ module.exports = (passport, db) => {
   router.put('/data/recipe/', ensureAuthenticated, AppController.getData, (req, res) => {
     if (req.isAuthenticated()) {
       const recipeToUpdate = { where: { id: req.body.recipe.name } };
-      db.Recipe.update(recipeToUpdate)
+      const updatedRecipeInfo = {
+        name: req.body.recipe.name,
+        servingSize: req.body.recipe.servingSize,
+        instructions: req.body.recipe.instructions,
+        isPublic: req.body.recipe.isPublic,
+        tags: req.body.recipe.tags,
+        mediaLink: req.body.recipe.mediaLink,
+        summarySection: req.body.recipe.summarySection
+      };
+      db.Recipe.update(updatedRecipeInfo, recipeToUpdate)
         .then((response) => {
           res.json(response);
         })
