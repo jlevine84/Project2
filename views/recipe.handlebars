@@ -17,12 +17,12 @@
 </nav>    
 
 <div class="container">
-
+{{#each recipes}}
     <div class="col s12 m7">
-        <h2 class="header">Chicken Kebab</h2>
+        <h2 class="header">{{name}}</h2>
         <div class="card horizontal">
             <div class="card-image">
-                <img src="kebab.jpg">
+                <img src="{{mediaLink}}">
                 </div>
                 <div class="card-stacked">
                 <div class="card-content">
@@ -31,17 +31,16 @@
             </div>
         </div>
     </div>
+{{/each}}
 
-</div>
- 
- 
+
 <ul class="collection with-header">
     <li class="collection-header"><h4>Ingredients</h4></li>
-    <li class="collection-item"><div>Chicken<a href="#!" class="secondary-content"><i class="material-icons">spa</i></a></div></li>
-    <li class="collection-item"><div>Soy Sauce<a href="#!" class="secondary-content"><i class="material-icons">spa</i></a></div></li>
-    <li class="collection-item"><div>Brown Sugar<a href="#!" class="secondary-content"><i class="material-icons">spa</i></a></div></li>
-    <li class="collection-item"><div>Garlic<a href="#!" class="secondary-content"><i class="material-icons">spa</i></a></div></li>
+    {{#each ingredients}}
+    <li class="collection-item"><div>{{material}}<a href="#!" class="secondary-content"><i class="material-icons">spa</i></a></div></li>
+    {{/each}}
 </ul>
+
 
 <ul class="collection with-header">
     <li class="collection-header"><h4>Instructions</h4></li>
@@ -51,25 +50,9 @@
             Add these to a ziploc bag with the soy sauce and refrigerate for at least an hour.
         </p>
     </li>
-    <li class="collection-item">
-        <span class="title">Step 2</span>
-        <p>First cut up the chicken into bite-sized pieces and mince the garlic.<br>
-            Add these to a ziploc bag with the soy sauce and refrigerate for at least an hour.
-        </p>
-    </li>
-    <li class="collection-item">
-        <span class="title">Step 3</span>
-        <p>First cut up the chicken into bite-sized pieces and mince the garlic.<br>
-            Add these to a ziploc bag with the soy sauce and refrigerate for at least an hour.
-        </p>
-    </li>
-    <li class="collection-item">
-        <span class="title">Step 4</span>
-        <p>First cut up the chicken into bite-sized pieces and mince the garlic.<br>
-            Add these to a ziploc bag with the soy sauce and refrigerate for at least an hour.
-        </p>
-    </li>
 </ul>
+
+</div>
 
 <footer class="page-footer">
     <div class="container">
