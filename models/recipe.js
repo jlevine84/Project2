@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     isPublic: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: false,
+      defaultValue: true
     },
     tags: {
       type: DataTypes.STRING,
@@ -26,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     mediaLink: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     summarySection: {
       type: DataTypes.TEXT,

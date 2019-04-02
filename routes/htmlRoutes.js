@@ -82,21 +82,7 @@ module.exports = (db) => {
       };
       res.render('dashboard', user);
     } else {
-      models.Recipe.findAll({
-      }).then((recipeInfo) => {
-        var recipe = recipeInfo;
-        models.Ingredient.findAll({
-          where: {
-            RecipeId: recipe[0].dataValues.id
-          }
-        }).then((data) => {
-          const obj = {
-            recipes: recipe,
-            ingredients: data
-          };
-          res.render('dashboard', obj);
-        });
-      });
+      res.render('dashboard');
     }
   });
 

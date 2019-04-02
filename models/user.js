@@ -4,11 +4,6 @@ module.exports = function (sequelize, DataTypes) {
   let User = sequelize.define(
     'User',
     {
-      id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-      },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false
@@ -37,10 +32,10 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: false
       },
       aboutMeSection: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true,
         validate: {
-          len: [1, 255]
+          len: [1]
         }
       }
     },
