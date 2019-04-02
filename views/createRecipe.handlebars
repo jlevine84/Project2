@@ -1,61 +1,181 @@
-<p class="flow-text">Add your Favorite Recipe</p>
-<ul class="collection">
-    <li class="collection-item avatar">
-        <span class="title">Add an Ingredient</span>
-        <i class="material-icons">add_circle</i>
-    </li>
-</ul>
-
+<nav>
+    <div class="nav-wrapper">
+        <a href="dashboard.handlebars" class="brand-logo">Add Your Recipe</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="dashboard.handlebars">Dashboard</a></li>
+            <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+    </div>
+</nav>
 <div class="container">
     <div class="row">
-        <div class="col s12 m4">
+        <div class="col s12 m6">
             <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
+                <div class="card-content black-text">
                     <span class="card-title">Ingredient List</span>
-                    <ul id="Ingredients">
-                        Ingredient 1 :
+                    <ul class="collection with-header">
+                        <li class="collection-header">
+                            <h6>You will need the following ingredients:</h6>
+                        </li>
+                        <li class="collection-item">1 package (1/4 ounce) active dry yeast</li>
+                        <li class="collection-item">2-1/4 cups warm water (110° to 115°)</li>
+                        <li class="collection-item">3 tablespoons sugar
+                        </li>
+                        <li class="collection-item">1 tablespoon salt
+                        </li>
+                        <li class="collection-item">2 tablespoons canola oil
+                        </li>
+                        <li class="collection-item">6-1/4 to 6-3/4 cups all-purpose flour
+                        </li>
                     </ul>
                 </div>
                 <div class="card-action">
-                    <a href="#">Add instructions</a>
+                    <a href="#">Add Directions</a>
                     <a href="#">Add Picture</a>
                     <a href="#">Add Video</a>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="col s12 m4">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title">Cooking Instructions</span>
-                <ul id="Instructions">
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../public/assets/img/bread.jpg">
+                    <!-- <img src="../public/assets/img/kitchen.jpg"> -->
+                    <span class="card-title">Recipe Card</span>
+                </div>
+                <div class="card-content">
+                    <ul class="collection with-header">
+                        <li class="collection-header">
+                            <h6>Ingredients:</h6>
+                        </li>
+                        <li class="collection-item">1 package (1/4 ounce) active dry yeast</li>
+                        <li class="collection-item">2-1/4 cups warm water (110° to 115°)</li>
+                        <li class="collection-item">3 tablespoons sugar
+                        </li>
+                        <li class="collection-item">1 tablespoon salt
+                        </li>
+                        <li class="collection-item">2 tablespoons canola oil
+                        </li>
+                        <li class="collection-item">6-1/4 to 6-3/4 cups all-purpose flour
+                        </li>
+                    </ul>
 
-                </ul>
-            </div>
-            <div class="card-action">
-                <a href="#">Add Ingredients</a>
-                <a href="#">Add Picture</a>
-                <a href="#">Add Video</a>
+                    <ul class="collection with-header">
+                        <li class="collection-header">
+                            <h6>Directions:</h6>
+                        </li>
+                        <li class="collection-item">In a large bowl, dissolve yeast in warm water. Add the sugar,
+                            salt, oil and 3
+                            cups
+                            flour. Beat until smooth. Stir in enough remaining flour, 1/2 cup at a time, to form a
+                            soft dough.</li>
+                        <li class="collection-item">Turn onto a floured surface; knead until smooth and elastic,
+                            8-10 minutes.
+                            Place in a
+                            greased bowl, turning once to grease the top. Cover and let rise in a warm place until
+                            doubled, about
+                            1-1/2
+                            hours.</li>
+                        <li class="collection-item">Punch dough down. Turn onto a lightly floured surface; divide
+                            dough in half.
+                            Shape
+                            each into a loaf. Place in two greased 9x5-in. loaf pans. Cover and let rise until
+                            doubled, 30-45
+                            minutes.</li>
+                        <li class="collection-item">Bake at 375° for 30-35 minutes or until golden brown and bread
+                            sounds hollow
+                            when
+                            tapped. Remove from pans to wire racks to cool.</li>
+                    </ul>
+                    <video class="responsive-video" controls>
+                        <source src="movie.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="card-action">
+                    <a href="/dashboard.handlebars">Go Back to Dashboard</a>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
             </div>
         </div>
-    </div>
-    <div class="col s12 m4">
-        <div class="card">
-            <div class="card-image">
-                <img src="../public/assets/img/recipeImage.jpeg">
-                <span class="card-title">Recipe Card</span>
+        <div class="float">
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content black-text">
+                        <span class="card-title">Cooking Instructions</span>
+                        <ul class="collection with-header">
+                            <li class="collection-header">
+                                <h6>Directions:</h6>
+                            </li>
+                            <li class="collection-item">In a large bowl, dissolve yeast in warm water. Add the
+                                sugar, salt, oil and
+                                3
+                                cups
+                                flour. Beat until smooth. Stir in enough remaining flour, 1/2 cup at a time, to form
+                                a soft dough.
+                            </li>
+                            <li class="collection-item">Turn onto a floured surface; knead until smooth and elastic,
+                                8-10 minutes.
+                                Place in a
+                                greased bowl, turning once to grease the top. Cover and let rise in a warm place
+                                until doubled, about
+                                1-1/2
+                                hours.</li>
+                            <li class="collection-item">Punch dough down. Turn onto a lightly floured surface;
+                                divide dough in half.
+                                Shape
+                                each into a loaf. Place in two greased 9x5-in. loaf pans. Cover and let rise until
+                                doubled, 30-45
+                                minutes.</li>
+                            <li class="collection-item">Bake at 375° for 30-35 minutes or until golden brown and
+                                bread sounds hollow
+                                when
+                                tapped. Remove from pans to wire racks to cool.</li>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Add Ingredients</a>
+                        <a href="#">Add Picture</a>
+                        <a href="#">Add Video</a>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
-                <p>Ingredients</p>
-                <p>Instructions</p>
-            </div>
-            <div class="card-action">
-                <a href="#">This is a link</a>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-            </button>
         </div>
     </div>
 </div>
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Eat Me</h5>
+                <p class="grey-text text-lighten-4">Our mission is to bring you recipes and easy measurement
+                    conversions so
+                    that
+                    you can get cooking. No life-stories, no fluff, just food.
+                </p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">The Team</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="https://github.com/parallelam">Wes Hatley</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://github.com/jlevine84">Jeff Levine</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://github.com/ericksont11">Tom Erickson</a>
+                    </li>
+                    <li><a class="grey-text text-lighten-3" href="https://github.com/jgwynn36">Jacqueline Gwynn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+            UNC Coding Bootcamp Project 2
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+    </div>
+</footer>
