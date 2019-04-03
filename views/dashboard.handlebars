@@ -1,105 +1,109 @@
 <nav class="nav-extended">
   <a href="#!" class="brand-logo">Eat Me</a>
   <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Eat Me</a>
-      <ul class="right hide-on-med-and-down">
-        <li><i class="material-icons prefix">search</i></li>     
-        <li>    
+    <a href="#!" class="brand-logo">Eat Me</a>
+    <ul class="right hide-on-med-and-down">
+      <li><i class="material-icons prefix">search</i></li>
+      <li>
+        <div class="input-field">
+          <!-- Turn Search function into drop down.
+            Search parameters for drop down: Recipe Name, Ingredient-->
           <div class="input-field">
-            <div class="input-field">
             <input type="text" placeholder="Search" id="autocomplete-input" class="autocomplete">
           </div>
-        </li>       
-        <li><a href="sass.html"><i class="material-icons">notifications</i></a></li>
-        <li><a href="badges.html">Login</a></li>                   
-      </ul>
+      </li>
+      <li><a href="sass.html"><i class="material-icons">notifications</i></a></li>
+      <li><a href="badges.html">Login</a></li>
+    </ul>
   </div>
-</nav>            
-  
+</nav>
+
 <div class="row">
 
   <div class="col s12 l3">
     <div class="card add">
-    <div class="card-image">
-      <img src="/assets/img/kitchen.jpg" class="add-image">
-      <span class="card-title">Add a recipe</span>
-      <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+      <div class="card-image">
+        <img src="/assets/img/kitchen.jpg" class="add-image">
+        <span class="card-title">Add a recipe</span>
+        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+      </div>
+      <div class="card-content">
+        <p>Click the button with the "+" above to begin adding your favorite recipes to our site for others to enjoy.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{#each recipes}}
+  <div class="card col l3 s6">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{mediaLink}}">
     </div>
     <div class="card-content">
-      <p>Click the button with the "+" above to begin adding your favorite recipes to our site for others to enjoy.</p>
+      <span class="card-title activator grey-text text-darken-4">{{name}}<i
+          class="material-icons right">more_vert</i></span>
     </div>
+    <div class="card-reveal">
+      <span class="card-title summary grey-text text-darken-4">{{name}}<i class="material-icons right">close</i></span>
+      <ul>
+        <li>Prep Time: {{time}}</li>
+        <li>Cook Time: {{cookTime}}</li>
+        <li>Difficulty Rating: {{difficulty}}</li>
+        <li>Ingredients:
+          <ol>
+            {{#each ../ingredients}}
+            <li>{{material}}</li>
+            {{/each}}
+          </ol>
+        </li>
+      </ul>
+    </div>
+    <div class="card-action" id={{@index}}>
+      <a href="#">Check out the recipe!</a>
     </div>
   </div>
-
-{{#each recipes}}
-<div class="card col l3 s6">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="{{mediaLink}}">
-  </div>
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">{{name}}<i class="material-icons right">more_vert</i></span>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title summary grey-text text-darken-4">{{name}}<i class="material-icons right">close</i></span>
-    <ul>
-      <li>Prep Time: {{time}}</li>
-      <li>Cook Time: {{cookTime}}</li>
-      <li>Difficulty Rating: {{difficulty}}</li>
-      <li>Ingredients:
-        <ol>
-          {{#each ../ingredients}}
-          <li>{{material}}</li>
-          {{/each}}
-        </ol>
-      </li>
-    </ul>
-  </div>
-  <div class="card-action" id={{@index}}>
-    <a href="#">Check out the recipe!</a>
-  </div>
-</div>
-{{/each}}
+  {{/each}}
 
 
-  
+
 
 </div>
-  
+
 <footer class="page-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Eat Me</h5>
-              <p class="grey-text text-lighten-4">Our mission is to bring you recipes and easy measurement conversions so that
-                  you can get cooking. No life-stories, no fluff, just food.
-              </p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">The Team</h5>
-              <ul>
-                <li><a class="grey-text text-lighten-3" href="https://github.com/parallelam">Wes Hatley</a></li>
-                <li><a class="grey-text text-lighten-3" href="https://github.com/jlevine84">Jeff Levine</a></li>
-                <li><a class="grey-text text-lighten-3" href="https://github.com/ericksont11">Tom Erickson</a></li>
-                <li><a class="grey-text text-lighten-3" href="https://github.com/jgwynn36">Jacqueline Gwynn</a></li>
-              </ul>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Eat Me</h5>
+        <p class="grey-text text-lighten-4">Our mission is to bring you recipes and easy measurement conversions so that
+          you can get cooking. No life-stories, no fluff, just food.
+        </p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">The Team</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://github.com/parallelam">Wes Hatley</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://github.com/jlevine84">Jeff Levine</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://github.com/ericksont11">Tom Erickson</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://github.com/jgwynn36">Jacqueline Gwynn</a></li>
+        </ul>
+      </div>
     </div>
+  </div>
 
-    <div class="footer-copyright">
-        <div class="container">
-        UNC Coding Bootcamp Project 2
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
+  <div class="footer-copyright">
+    <div class="container">
+      UNC Coding Bootcamp Project 2
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
     </div>
+  </div>
 </footer>
 
 <script>
-  $('.card-action').on('click', function(){
-    console.log(this.id)
-    window.location = "/recipe/"+(parseInt(this.id)+1);
-  });
-  $('.btn-floating').on('click', function(){
+  $( '.card-action' ).on( 'click', function () {
+    console.log( this.id )
+    window.location = "/recipe/" + ( parseInt( this.id ) + 1 );
+  } );
+  $( '.btn-floating' ).on( 'click', function () {
     window.location = "/createRecipe/";
-  });
+  } );
 </script>
