@@ -105,3 +105,37 @@ img {
   margin-top: 8.5vh;
   width: 12vw;
 }
+
+.teal {
+  color:white
+}
+
+select, textarea{
+  color: white;
+  font-size: 2em
+}
+
+.collection-item, h6 {
+  color: white
+}
+
+.color {
+  color: rgb(236, 144, 147)
+}
+
+.btn {
+  text-align: center;
+  left: 50%; /**Added This**/
+}
+
+#ingredient-input, #direction-input {
+  width:75%
+}
+
+.add-direction, .add-ingredient {
+  width: 25%
+}
+
+.add-image {
+  width: 100%
+}
