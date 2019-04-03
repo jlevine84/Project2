@@ -16,6 +16,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
+    difficulty: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    prepTime: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    cookTime: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     isPublic: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
