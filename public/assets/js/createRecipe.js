@@ -8,12 +8,33 @@ $(document).ready(function () {
   $('.responsive-video').hide();
   $('.name').hide();
 
+  let recipe = {};
+  recipe.ingredients = [];
+  recipe.instructions = [];
+
+  // Tom: Make HTML for this function to capture Serving Size
+  $('.add-servingSize').click(function () {
+    recipe.servingSize = $('.servingSize-input').val();
+  });
+
   $('.add-ingredient').click(function () {
     $('.ingredient-card').show();
     if ($('#ingredient-input').val() !== '') {
-      var ingredient = $('#ingredient-input').val();
+      // Tom: Make quantity field for each new ingredient
+      // Grab quantity field value.
+      let quantityToAdd = $('#quantity-input').val();
+      // Grab ingredient field value.
+      let ingredientToAdd = $('#ingredient-input').val();
+      let ingredient = {};
+      ingredient.quantity = quantityToAdd;
+      ingredient.material = ingredientToAdd;
+      // Push ingredient object to the array.
+      recipe.ingredients.push(ingredient);
+
       var cardIngredient = $("<li class='collection-item color close'>" + '<i class="material-icons right close">close</i>' + ingredient + '</li>');
+      // Tom: Make the quantity show up with the ingredient on its' card.
       $('.ingredient-card').append(cardIngredient);
+      $('quantity-input').val('');
       $('#ingredient-input').val('');
     }
   });
@@ -21,6 +42,8 @@ $(document).ready(function () {
     $('.direction-card').show();
     if ($('#direction-input').val() !== '') {
       var direction = $('#direction-input').val();
+      // Push direction to the instructions Array
+      recipe.instructions.push(direction);
       var cardDirection = $("<li class='collection-item color close'>" + '<i class="material-icons right close">close</i>' + 'Step ' + counter + ': ' + direction + '</li>');
       $('.direction-card').append(cardDirection);
       $('#direction-input').val('');
@@ -31,21 +54,23 @@ $(document).ready(function () {
     if ($('#image-input').val() !== '') {
       $('#userImage').remove();
       var image = $('#image-input').val();
+      recipe.image = image;
       var cardImage = $('<img src=' + image + " id='userImage'>");
       $('.card-image').append(cardImage);
       $('#cardImage').css('height', '0');
       $('#image-input').val('');
     }
   });
-  $('.add-video').click(function () {
-    if ($('#video-input').val() !== '') {
-      $('.responsive-video').show();
-    }
-  });
+  // $('.add-video').click(function () {
+  //   if ($('#video-input').val() !== '') {
+  //     $('.responsive-video').show();
+  //   }
+  // });
   $('.add-prep').click(function () {
     if ($('#prep-input').val() !== '') {
       $('.prep').show();
       var value = $('#prep-input').val();
+      recipe.prepTime = value;
       $('.prep').empty();
       $('.prep').append('Prep time: ' + value);
       $(this).text('EDIT');
@@ -55,6 +80,7 @@ $(document).ready(function () {
     if ($('#name-input').val() !== '') {
       $('.name').show();
       var value = $('#name-input').val();
+      recipe.name = value;
       $('.name').empty();
       $('.name').append(value);
       $(this).text('EDIT');
@@ -64,6 +90,7 @@ $(document).ready(function () {
     if ($('#cook-input').val() !== '') {
       $('.cook').show();
       var value = $('#cook-input').val();
+      recipe.cookTime = value;
       $('.cook').empty();
       $('.cook').append('Cook time: ' + value);
       $(this).text('EDIT');
@@ -72,6 +99,7 @@ $(document).ready(function () {
   $('.add-summary').click(function () {
     if ($('#summary-input').val() !== '') {
       var value = $('#summary-input').val();
+      recipe.summary = value;
       $('.summary-section').empty();
       $('.summary-section').append(value);
       $(this).text('EDIT');
@@ -84,6 +112,7 @@ $(document).ready(function () {
   $('.clicked').on('click', function () {
     $('.difficulty').show();
     var value = $(this).val();
+    recipe.difficulty = value;
     var text = $(this).text();
     $('.dropdown-trigger').text(text);
     $('.difficulty').empty();
@@ -103,5 +132,17 @@ $(document).ready(function () {
     if (value === 5) {
       $('.difficulty').append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i> (Michelin Star Chef)");
     }
+  });
+
+  $('#add-recipe').on('click', (event) => {
+    // recipe.instructions = recipe.instructions.join(',');
+    event.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/api/recipe',
+      data: recipe
+    }).then((response) => {
+      if (response) window.location.href = '/dashboard';
+    });
   });
 });
