@@ -120,12 +120,12 @@ select, textarea{
   color: rgb(236, 144, 147)
 }
 
-#ingredient-input, #direction-input, #image-input,
+#ingredient-input, #direction-input, #image-input, #servingSize-input,
 #video-input, #prep-input, #cook-input, #name-input {
   width:80%
 }
 
-.add-direction, .add-ingredient, .add-image,
+.add-direction, .add-ingredient, .add-image, .add-servingSize,
 .add-video, .add-cook, .add-prep, .add-name {
   width: 20%
 }
