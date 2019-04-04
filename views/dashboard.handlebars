@@ -66,6 +66,29 @@
 
 
 
+  <div class="col s12 l3">
+    <ul class="collapsible">
+      <li>
+        <div class="header" style="background: white; text-align: center"><span><strong>Search for Recipes or by Ingredients!</strong></span></div>
+      </li>
+      <li class="active">
+        <div class="collapsible-header">Recipes</div>
+        <div class="collapsible-body" style="background: rgb(236, 144, 147)">
+          <input style="border: 1px solid grey" placeholder="Search for recipes" type="text" id="recipe-search"></input>
+          <button class="btn" id="recSearchBtn">Search</button>
+          </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Ingredients</div>
+        <div class="collapsible-body" style="background: rgb(236, 144, 147)">
+          <input style="border: 1px solid grey" placeholder="Search by ingredients" type="text" id="ingredient-search"></input>
+          <button class="btn" id="ingSearchBtn">Search</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+
 
 </div>
 
@@ -99,6 +122,40 @@
 </footer>
 
 <script>
+
+  $('.card-action').on('click', function(){
+    console.log(this.id)
+    window.location = "/recipe/"+(parseInt(this.id)+1);
+  });
+
+  $('.btn-floating').on('click', function(){
+    window.location = "/createRecipe/";
+  });
+
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+
+  $('.recSearchBtn').on('click', function(event) {
+    event.preventDefault();
+    let recSearch = $('.recipe-search').val();
+    let apiRecSearch = `recipe=${recSearch}`
+    // Ajax Call 
+    $.ajax({
+      type: 'GET',
+      url: `/api/recipe/search?${apiRecSearch}`,
+    }).then((result) => {
+      // Toggle search modal with data returned.
+    }
+  };
+
+    $('.ingSearchBtn').on('click', function(event) {
+    event.preventDefault();
+    let ingSearch = $('.ingredient-search').val();
+    //Ajax Call. Toggle search modal with data returned.
+    
+  }
+
   $( '.card-action' ).on( 'click', function () {
     console.log( this.id )
     window.location = "/recipe/" + ( parseInt( this.id ) + 1 );
@@ -106,4 +163,5 @@
   $( '.btn-floating' ).on( 'click', function () {
     window.location = "/createRecipe/";
   } );
+
 </script>
