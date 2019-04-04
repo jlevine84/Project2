@@ -28,15 +28,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     },
-    isPublic: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: true
-    },
-    tags: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
+    // isPublic: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: false,
+    //   defaultValue: true
+    // },
+    // tags: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true
+    // },
     mediaLink: {
       type: DataTypes.STRING,
       allowNull: true
