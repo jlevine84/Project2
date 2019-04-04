@@ -37,7 +37,7 @@
 <ul class="collection with-header">
     <li class="collection-header"><h4>Ingredients</h4></li>
     {{#each ingredients}}
-    <li class="collection-item"><div>{{quantity}} {{material}}<a href="#!" class="secondary-content"><i class="material-icons">spa</i></a></div></li>
+    <li class="collection-item color"><div>{{quantity}} {{material}}<a href="#!" class="secondary-content"><i class="material-icons">spa</i></a></div></li>
     {{/each}}
 </ul>
 
@@ -46,8 +46,8 @@
     <li class="collection-header"><h4>Instructions</h4></li>
     {{#each recipes}}
     <li class="collection-item">
-        <span class="title">Step 1</span>
-        <p>
+        <span class="title color">Step 1</span>
+        <p class="color">
             {{instructions}}
         </p>
     </li>
