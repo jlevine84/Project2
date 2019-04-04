@@ -1,160 +1,129 @@
-<nav>
+<nav class="recipe-page">
     <div class="nav-wrapper">
         <a href="dashboard.handlebars" class="brand-logo">Add Your Recipe</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="dashboard.handlebars">Dashboard</a></li>
-            <li><a href="collapsible.html">JavaScript</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
         </ul>
     </div>
 </nav>
-<div class="container">
+
     <div class="row">
-        <div class="col s12 m6">
-            <div class="card blue-grey darken-1">
-                <div class="card-content black-text">
-                    <span class="card-title">Ingredient List</span>
-                    <ul class="collection with-header">
-                        <li class="collection-header">
-                            <h6>You will need the following ingredients:</h6>
-                        </li>
-                        <li class="collection-item">1 package (1/4 ounce) active dry yeast</li>
-                        <li class="collection-item">2-1/4 cups warm water (110° to 115°)</li>
-                        <li class="collection-item">3 tablespoons sugar
-                        </li>
-                        <li class="collection-item">1 tablespoon salt
-                        </li>
-                        <li class="collection-item">2 tablespoons canola oil
-                        </li>
-                        <li class="collection-item">6-1/4 to 6-3/4 cups all-purpose flour
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-action">
-                    <a href="#">Add Directions</a>
-                    <a href="#">Add Picture</a>
-                    <a href="#">Add Video</a>
-                </div>
-            </div>
-        </div>
 
-        <div class="col s12 m6">
+         <div class="col l4 m8 s8 offset-m2 offset-s2 offset-l2">
             <div class="card">
-                <div class="card-image">
-                    <img src="../public/assets/img/bread.jpg">
-                    <!-- <img src="../public/assets/img/kitchen.jpg"> -->
-                    <span class="card-title">Recipe Card</span>
+                <div class="card-image center-align">
+                    <img src="/assets/img/kitchen.jpg" id="cardImage">
                 </div>
-                <div class="card-content">
-                    <ul class="collection with-header">
-                        <li class="collection-header">
-                            <h6>Ingredients:</h6>
+                <div class="card-content center-align">
+                    <p class="difficulty">Difficulty Rating:</p>
+                    <p class="prep">Prep Time:</p>
+                    <p class="cook">Cook Time:</p>
+
+                    <ul class="collection with-header ingredient-card">
+                        <li class="collection-header red lighten-2 class">
+                            <h6>Ingredient List</h6>
                         </li>
-                        <li class="collection-item">1 package (1/4 ounce) active dry yeast</li>
-                        <li class="collection-item">2-1/4 cups warm water (110° to 115°)</li>
-                        <li class="collection-item">3 tablespoons sugar
-                        </li>
-                        <li class="collection-item">1 tablespoon salt
-                        </li>
-                        <li class="collection-item">2 tablespoons canola oil
-                        </li>
-                        <li class="collection-item">6-1/4 to 6-3/4 cups all-purpose flour
+                    </ul>
+                    
+                    <ul class="collection with-header direction-card">
+                        <li class="collection-header red lighten-2 class">
+                            <h6>Directions</h6>
                         </li>
                     </ul>
 
-                    <ul class="collection with-header">
-                        <li class="collection-header">
-                            <h6>Directions:</h6>
-                        </li>
-                        <li class="collection-item">In a large bowl, dissolve yeast in warm water. Add the sugar,
-                            salt, oil and 3
-                            cups
-                            flour. Beat until smooth. Stir in enough remaining flour, 1/2 cup at a time, to form a
-                            soft dough.</li>
-                        <li class="collection-item">Turn onto a floured surface; knead until smooth and elastic,
-                            8-10 minutes.
-                            Place in a
-                            greased bowl, turning once to grease the top. Cover and let rise in a warm place until
-                            doubled, about
-                            1-1/2
-                            hours.</li>
-                        <li class="collection-item">Punch dough down. Turn onto a lightly floured surface; divide
-                            dough in half.
-                            Shape
-                            each into a loaf. Place in two greased 9x5-in. loaf pans. Cover and let rise until
-                            doubled, 30-45
-                            minutes.</li>
-                        <li class="collection-item">Bake at 375° for 30-35 minutes or until golden brown and bread
-                            sounds hollow
-                            when
-                            tapped. Remove from pans to wire racks to cool.</li>
-                    </ul>
+                    <p class="summary-section"></p>
+                    
+                    <br>
                     <video class="responsive-video" controls>
                         <source src="movie.mp4" type="video/mp4">
                     </video>
+                    <br>
+
                 </div>
                 <div class="card-action">
-                    <a href="/dashboard.handlebars">Go Back to Dashboard</a>
+                     <button class="btn waves-effect waves-light center" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">send</i>
-                </button>
+
             </div>
         </div>
-        <div class="float">
-            <div class="col s12 m6">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content black-text">
-                        <span class="card-title">Cooking Instructions</span>
-                        <ul class="collection with-header">
-                            <li class="collection-header">
-                                <h6>Directions:</h6>
-                            </li>
-                            <li class="collection-item">In a large bowl, dissolve yeast in warm water. Add the
-                                sugar, salt, oil and
-                                3
-                                cups
-                                flour. Beat until smooth. Stir in enough remaining flour, 1/2 cup at a time, to form
-                                a soft dough.
-                            </li>
-                            <li class="collection-item">Turn onto a floured surface; knead until smooth and elastic,
-                                8-10 minutes.
-                                Place in a
-                                greased bowl, turning once to grease the top. Cover and let rise in a warm place
-                                until doubled, about
-                                1-1/2
-                                hours.</li>
-                            <li class="collection-item">Punch dough down. Turn onto a lightly floured surface;
-                                divide dough in half.
-                                Shape
-                                each into a loaf. Place in two greased 9x5-in. loaf pans. Cover and let rise until
-                                doubled, 30-45
-                                minutes.</li>
-                            <li class="collection-item">Bake at 375° for 30-35 minutes or until golden brown and
-                                bread sounds hollow
-                                when
-                                tapped. Remove from pans to wire racks to cool.</li>
-                        </ul>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Add Ingredients</a>
-                        <a href="#">Add Picture</a>
-                        <a href="#">Add Video</a>
-                    </div>
+
+        <div class="col l4 m8 s8 offset-m2 offset-s2">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Add Ingredients</span>
+                    <input placeholder="Enter each ingredient here" class="left-align" id="ingredient-input" type="text" class="validate">
+                    <button class="btn add-ingredient right center-btn">Add</button>
+                </div>
+            </div>
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Add Directions</span>
+                    <input placeholder="Enter each step here one-by-one" class="left-align" id="direction-input" type="text" class="validate">
+                    <button class="btn add-direction right">Add</button>
+                </div>
+            </div>
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Add Video</span>
+                    <input placeholder="Enter link to your video here" class="left-align" id="video-input" type="text" class="validate">
+                    <button class="btn add-video right">Add</button>
+                </div>
+            </div>
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Add Image</span>
+                    <input placeholder="Enter link to your image here" class="left-align" id="image-input" type="text" class="validate">
+                    <button class="btn add-image right">Add</button>
+                </div>
+            </div>
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">How long does it take to prep?</span>
+                    <input placeholder="Enter how long it takes to prep" class="left-align" id="prep-input" type="text" class="validate">
+                    <button class="btn add-prep right">Add</button>
+                </div>
+            </div>
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">How long does it take to cook?</span>
+                    <input placeholder="Enter how long it takes to cook" class="left-align" id="cook-input" type="text" class="validate">
+                    <button class="btn add-cook right">Add</button>
+                </div>
+            </div>
+            <div class="card blue-grey darken-1 card-padding">
+                <div class="card-content white-text">
+                    <span class="card-title">Add a story or additional information</span>
+                    <textarea id="summary-input" name="subject" placeholder="This is where you can share intersting facts about your recipe. You could put where you came across it, it's history, a story about making it. Whatever you'd like!" style="height:20vh"></textarea>
+                    <button class="btn add-summary right">Add</button>
+                </div>
+            </div>
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Give a difficulty rating!</span>
+                    <button class='dropdown-trigger btn' data-target='dropdown1'>Choose a difficulty</button>
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li class="clicked" value="1">Beginner</li>
+                        <li class="clicked" value="2">Amateur</li>
+                        <li class="clicked" value="3">Home Chef</li>
+                        <li class="clicked" value="4">Professional Chef</li>
+                        <li class="clicked" value="5">Michelin Star Chef</li>
+                    </ul>
                 </div>
             </div>
         </div>
+
     </div>
-</div>
+
 
 <footer class="page-footer">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Eat Me</h5>
-                <p class="grey-text text-lighten-4">Our mission is to bring you recipes and easy measurement
-                    conversions so
-                    that
+                <p class="grey-text text-lighten-4">
+                    Our mission is to bring you recipes and easy measurement conversions so that
                     you can get cooking. No life-stories, no fluff, just food.
                 </p>
             </div>
@@ -179,3 +148,101 @@
         </div>
     </div>
 </footer>
+<script>
+    var counter = 1
+    $(".difficulty").hide()
+    $(".prep").hide()
+    $(".cook").hide()
+    $(".ingredient-card").hide()
+    $(".direction-card").hide()
+    $(".responsive-video").hide()
+    
+    $(".add-ingredient").click(function(){
+        $(".ingredient-card").show()
+        if ($("#ingredient-input").val() !== ""){
+            var ingredient = $("#ingredient-input").val()
+            var cardIngredient = $("<li class='collection-item color close'>"+'<i class="material-icons right close">close</i>'+ingredient+"</li>")
+            $(".ingredient-card").append(cardIngredient)
+            $("#ingredient-input").val("")
+        }
+    })
+    $(".add-direction").click(function(){
+        $(".direction-card").show()
+        if ($("#direction-input").val() !== ""){
+            var direction = $("#direction-input").val()
+            var cardDirection = $("<li class='collection-item color close'>"+'<i class="material-icons right close">close</i>'+'Step '+ counter +": " +direction+ "</li>")
+            $(".direction-card").append(cardDirection)
+            $("#direction-input").val("")
+            counter++
+        }
+    })
+    $(".add-image").click(function(){
+        if ($("#image-input").val() !== ""){
+            $('#userImage').remove()
+            var image = $("#image-input").val()
+            var cardImage = $("<img src="+image+" id='userImage'>")
+            $(".card-image").append(cardImage)
+            $("#cardImage").css("height", '0')
+            $("#image-input").val("")
+        }
+    })
+    $(".add-video").click(function(){
+        if ($("#video-input").val() !== ""){
+            $(".responsive-video").show()
+        }
+    })
+    $(".add-prep").click(function(){
+        if ($("#prep-input").val() !== ""){
+            $(".prep").show()
+            var value = $("#prep-input").val()
+            $('.prep').empty();
+            $(".prep").append("Prep time: " + value)
+            $(this).text("EDIT")
+        }
+    })
+    $(".add-cook").click(function(){
+        if ($("#cook-input").val() !== ""){
+            $(".cook").show()
+            var value = $("#cook-input").val()
+            $('.cook').empty();
+            $(".cook").append("Cook time: " + value)
+            $(this).text("EDIT")
+        }
+    })
+    $(".add-summary").click(function(){
+        if ($("#summary-input").val() !== ""){
+            var value = $("#summary-input").val()
+            $('.summary-section').empty();
+            $(".summary-section").append(value)
+            $(this).text("EDIT")
+        }
+    })
+    $(document).on('click', '.close', function(){
+        $(this).remove()
+    });
+     $('.dropdown-trigger').dropdown({constrainWidth: false });
+     $(".clicked").on('click', function(){
+        $(".difficulty").show()
+        var value = $(this).val()
+        var text = $(this).text()
+        $('.dropdown-trigger').text(text);
+        $('.difficulty').empty();
+
+        if (value === 1) {
+            $(".difficulty").append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i> (Beginner)")
+        }
+        if (value === 2) {
+            $(".difficulty").append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i> (Amateur)")
+        }
+        if (value === 3) {
+            $(".difficulty").append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i> (Home Chef)")
+        }
+        if (value === 4) {
+            $(".difficulty").append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i> (Professional Chef)")
+        }
+        if (value === 5) {
+            $(".difficulty").append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i> (Michelin Star Chef)")
+        }
+    });
+
+</script>

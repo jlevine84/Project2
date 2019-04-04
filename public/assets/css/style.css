@@ -14,6 +14,7 @@ ul {
   color:white;
   background:#cadde1;
   border: 1px solid white;
+  text-align: center
 }
 
 #user-form, .header-wrap, #create-form, .create-user-wrap {
@@ -68,7 +69,6 @@ hr {
   margin-left: 2%
 }
 
-
 body {
   display: flex;
   min-height: 100%;
@@ -83,6 +83,11 @@ main {
 img {
   height: 30vh;
 }
+
+.add-image {
+  height: 50vh
+}
+
 .summary {
   text-decoration: underline
 }
@@ -96,12 +101,64 @@ img {
   height: 87.5vh
 }
 
-.add-image {
-  height: 50vh
-}
-
 .dropdown-content {
   position: absolute !important;
   margin-top: 8.5vh;
   width: 12vw;
+}
+
+select, textarea{
+  color: white;
+  font-size: 2em
+}
+
+.collection-item, h6 {
+  color: white
+}
+
+.color {
+  color: rgb(236, 144, 147)
+}
+
+#ingredient-input, #direction-input, #image-input,
+#video-input, #prep-input, #cook-input {
+  width:80%
+}
+
+.add-direction, .add-ingredient, .add-image,
+.add-video, .add-cook, .add-prep {
+  width: 20%
+}
+
+.center {
+  width: 40%;
+  margin-left: 30%
+}
+
+input {
+  color: white
+}
+
+.recipe-page {
+  margin-bottom: 5vh
+}
+
+.dropdown-content {
+  width: 15vw;
+}
+
+
+.material-icons {
+  vertical-align: middle !important;
+  padding-bottom: 3px;
+}
+
+.card-padding {
+  padding-bottom: 10%
+}
+
+.recipe-card {
+  margin-top: 20vh;
+  position: fixed;
+  width: 40vw
 }
