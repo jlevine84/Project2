@@ -121,12 +121,12 @@ select, textarea{
 }
 
 #ingredient-input, #direction-input, #image-input,
-#video-input, #prep-input, #cook-input {
+#video-input, #prep-input, #cook-input, #name-input {
   width:80%
 }
 
 .add-direction, .add-ingredient, .add-image,
-.add-video, .add-cook, .add-prep {
+.add-video, .add-cook, .add-prep, .add-name {
   width: 20%
 }
 
@@ -161,4 +161,12 @@ input {
   margin-top: 20vh;
   position: fixed;
   width: 40vw
+}
+
+.name {
+  background-color: #EE6E73;
+  color: white;
+  margin-bottom: 0;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
