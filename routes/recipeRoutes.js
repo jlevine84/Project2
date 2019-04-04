@@ -45,14 +45,19 @@ module.exports = (router) => {
 
   // POST route for creating new Recipe data:
   router.post('/api/recipe', (req, res) => {
-    console.log(req.body);
     let ingredients = req.body.ingredients;
-    console.log(ingredients);
     db.Recipe.create(req.body)
       .then((response) => {
         res.json(response);
         let recipeId = response.id;
-        console.log(recipeId);
+        ingredients.forEach(element => {
+          element.RecipeId = recipeId;
+        });
+        ingredients.forEach(element => {
+          db.Ingredient.create(element).then(result => {
+            res.json(result);
+          }).catch(err => res.json(err));
+        });
       })
       .catch((err) => {
         res.json(err);
