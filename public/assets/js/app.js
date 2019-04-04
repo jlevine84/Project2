@@ -1,14 +1,29 @@
+//! Add New User:
 $('#add-user').on('click', function (event) {
   event.preventDefault();
 
   const newAccount = {
-    firstName: $('#inputFirst').val().trim(),
-    lastName: $('#inputLast').val().trim(),
-    email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+    firstName: $('#inputFirst')
+      .val()
+      .trim(),
+    lastName: $('#inputLast')
+      .val()
+      .trim(),
+    email: $('#inputEmail')
+      .val()
+      .trim(),
+    password: $('#inputPassword')
+      .val()
+      .trim()
   };
 
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
+  if (
+    newAccount.password.length > 0 &&
+    newAccount.email.length > 0 &&
+    newAccount.password.length > 0 &&
+    newAccount.lastName.length > 0 &&
+    newAccount.firstName.length > 0
+  ) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
@@ -18,10 +33,13 @@ $('#add-user').on('click', function (event) {
     });
   } else {
     console.log('**Please fill out entire form**');
-    $('#create-err-msg').empty('').text('**Please fill out entire form**');
+    $('#create-err-msg')
+      .empty('')
+      .text('**Please fill out entire form**');
   }
 });
 
+//! Update User:
 $('#update-user').on('click', function (event) {
   event.preventDefault();
 
@@ -29,16 +47,30 @@ $('#update-user').on('click', function (event) {
 
   // capture All changes
   const changeUser = {
-    firstName: $('#inputFirst').val().trim(),
-    lastName: $('#inputLast').val().trim(),
-    email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+    firstName: $('#inputFirst')
+      .val()
+      .trim(),
+    lastName: $('#inputLast')
+      .val()
+      .trim(),
+    email: $('#inputEmail')
+      .val()
+      .trim(),
+    password: $('#inputPassword')
+      .val()
+      .trim()
   };
   $('#err-msg').empty('');
   // $('#change-user-modal').modal('show');
   console.log(changeUser);
 
-  if (changeUser.password.length > 0 && changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.lastName.length > 0 && changeUser.firstName.length > 0) {
+  if (
+    changeUser.password.length > 0 &&
+    changeUser.email.length > 0 &&
+    changeUser.password.length > 0 &&
+    changeUser.lastName.length > 0 &&
+    changeUser.firstName.length > 0
+  ) {
     $.ajax({
       type: 'PUT',
       url: `/api/user/${id}`,
@@ -50,11 +82,35 @@ $('#update-user').on('click', function (event) {
     });
   } else {
     console.log('**Please fill out entire form**');
-    $('#update-err-msg').empty('').text('**Please fill out entire form**');
+    $('#update-err-msg')
+      .empty('')
+      .text('**Please fill out entire form**');
   }
 });
 
-// DELETE   ***************************************************
+//! Search API based on user input:
+$('#recipe-search').on('click', (event) => {
+  event.preventDefault();
+  const searchValue = {};
+  if (searchValue === 'recipe') {
+    $.ajax({
+      type: 'GET',
+      url: `/api/recipe/search?recipe=${searchValue}`
+    }).then((result) => {
+      window.location.href = `/api/recipe/${result}`;
+    });
+  }
+  if (searchValue === 'ingredient') {
+    $.ajax({
+      type: 'GET',
+      url: `/api/recipe/search/?ingredient=${searchValue}`
+    }).then((result) => {
+      window.location.href = `/api/ingredient/search?ingredient=${result}`;
+    });
+  }
+});
+
+//! DELETE   ***************************************************
 $('#delete-user').on('click', function (event) {
   event.preventDefault();
   $('#err-msg').empty('');
@@ -67,8 +123,12 @@ $('#confirm-delete').on('click', function (event) {
   const id = $(this).data('id');
 
   const deleteUser = {
-    email: $('#userEmail').val().trim(),
-    password: $('#userPassword').val().trim()
+    email: $('#userEmail')
+      .val()
+      .trim(),
+    password: $('#userPassword')
+      .val()
+      .trim()
   };
 
   if (deleteUser.email.length > 0 && deleteUser.password.length > 0) {
@@ -86,12 +146,16 @@ $('#confirm-delete').on('click', function (event) {
           window.location.href = '/logout';
         });
       } else {
-        $('#err-msg').empty('').text('Wrong credentials!');
+        $('#err-msg')
+          .empty('')
+          .text('Wrong credentials!');
       }
     });
   } else {
     console.log('fill out entire form');
-    $('#err-msg').empty('').text('fill out entire form');
+    $('#err-msg')
+      .empty('')
+      .text('fill out entire form');
   }
 });
 
@@ -114,8 +178,12 @@ $('#login').on('click', function (event) {
   event.preventDefault();
 
   const user = {
-    email: $('#email').val().trim(),
-    password: $('#user_password').val().trim()
+    email: $('#email')
+      .val()
+      .trim(),
+    password: $('#user_password')
+      .val()
+      .trim()
   };
 
   $.post('/api/login', user, (result) => {
@@ -123,7 +191,9 @@ $('#login').on('click', function (event) {
     if (result.loggedIn) {
       $(document.location).attr('href', '/dashboard');
     } else {
-      $('#login-err-msg').empty('').text(result.error);
+      $('#login-err-msg')
+        .empty('')
+        .text(result.error);
       $('#user-info').modal('hide');
     }
   });
