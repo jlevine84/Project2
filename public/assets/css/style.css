@@ -17,6 +17,10 @@ ul {
   text-align: center
 }
 
+.center-text {
+  text-align: center;
+}
+
 #user-form, .header-wrap, #create-form, .create-user-wrap {
   padding: 20px;
   border-radius: 15px;
