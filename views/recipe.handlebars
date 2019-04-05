@@ -48,7 +48,7 @@
     $(document).ready(function () {
         $('#instructions').hide()
         if ($('.prep')){
-            let text = $('#instructions').text().trim().split(",")
+            let text = $('#instructions').text().trim().split("|")
             for(let i=0; i < text.length; i++){
                 let instruction = $("<li class='collection-item'><span class='title color'>Step " + (i+1) + ": </span><p class='color' id='instructions'>"+text[i]+"</p></li>")
                 console.log(text[0])
