@@ -142,6 +142,7 @@
         url: `/api/search${apiRecSearch}`,
       }).then((result) => {
         $('#loading').hide()
+        
         // Propagate data to modal
         const searchItem = $('#searchitem');
         for(i = 0; i< result.length; i++) {
@@ -163,6 +164,7 @@
       type: 'GET',
       url: `/api/search${apiRecSearch}`,
     }).then((result) => {
+
       $('#loading').hide()
       // Propagate data to modal
       // console.log(result);
@@ -183,7 +185,11 @@
     });
   });
 
-
+  $('#closemodal').on('click', function(event) {
+    event.preventDefault();
+    $('#searchitem').text('');
+    $('#loading').show();
+  })
 
   $( '.card-action' ).on( 'click', function () {
     console.log( this.id )

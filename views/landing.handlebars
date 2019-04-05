@@ -1,51 +1,61 @@
 {{> nav/nav-block}}
 
-<div id="main-container" class="container">
-  <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">Welcome to <strong>Eat Me</strong></p>
-    <hr class="my-4">
-    <div>
-        <ul>
-            <li>
-                <div class="g-signin2" style="display: inline-block" data-onsuccess="onSignIn"></div>
-                    <script>
-                    function onSignIn(googleUser) {
-                        // Useful data for your client-side scripts:
-                        var profile = googleUser.getBasicProfile();
-                        const user = {
-                            firstName: profile.ofa,
-                            lastName: profile.wea,
-                            email: profile.U3
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><strong>Welcome to Eat Me!</strong></span>
+          <p>Eat me is an open source Recipe database for Google and custom login supporters!</p>
+          <br>
+          <p>When you are ready to get your food on, feel free to login below and get that cooking started!</p>
+        </div>
+        <div class="card-action center">
+            <ul>
+                <li>
+                    <div class="g-signin2" style="display: inline-block" data-onsuccess="onSignIn"></div>
+                        <script>
+                        function onSignIn(googleUser) {
+                            // Useful data for your client-side scripts:
+                            var profile = googleUser.getBasicProfile();
+                            const user = {
+                                firstName: profile.ofa,
+                                lastName: profile.wea,
+                                email: profile.U3
+                            }
+                            console.log(user)
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '/ginfo',
+                                data: user
+                            }).then(result => {
+                                if(result) $(document.location).attr('href', '/dashboard');
+                            })
                         }
-                        console.log(user)
-
-                        $.ajax({
-                            type: 'POST',
-                            url: '/ginfo',
-                            data: user
-                        }).then(result => {
-                            if(result) $(document.location).attr('href', '/dashboard');
-                        })
-                    }
-                    </script>
-            </li>
-
-            {{#if isloggedin}}
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile">My Profile</a>
+                        </script>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>
-                </li>
-            {{else}}
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="login-modal">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register" data-register={{register}}>Register</a>
-                </li>
-            {{/if}}
-        </ul>
+                <br>
+                {{#if isloggedin}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">My Profile</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="login-modal">Login</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register" data-register={{register}}>Register</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
