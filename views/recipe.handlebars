@@ -22,15 +22,15 @@
         <h2 class="header">{{name}}</h2>
         <div class="card horizontal">
             <div class="card-image">
-                <img src="{{mediaLink}}">
-                </div>
-                <div class="card-stacked">
-                <div class="card-content">
-                    <p>Prep Time: {{prepTime}}</p>
-                    <p>Cook Time: {{cookTime}}</p>
-                    <p>Difficulty: {{Difficulty}}</p>
-                    <p>Serves {{servingSize}} People</p>
-                </div>
+                <img src="{{mediaLink}}" class="recipe-image">
+            </div>
+            <div class="card-stacked">
+            <div class="card-content">
+                <p class="prep">Prep Time: {{prepTime}}</p>
+                <p>Cook Time: {{cookTime}}</p>
+                <p>Difficulty: {{difficulty}}</p>
+                <p>Serves {{servingSize}} People</p>
+            </div>
             </div>
         </div>
     </div>
@@ -84,7 +84,13 @@
     <div class="footer-copyright">
         <div class="container">
             UNC Coding Bootcamp Project 2
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
         </div>
     </div>
 </footer>
+
+<script>
+    if ($('.prep')){
+        console.log($('.prep').text())
+    }
+</script>
