@@ -44,17 +44,16 @@
     {{/each}}
 </ul>
 
+{{#each recipes}}
 
-<ul class="collection with-header">
+    <p class="color" id="instructions">
+        {{instructions}}
+    </p>
+
+{{/each}}
+
+<ul class="collection with-header append-instructions">
     <li class="collection-header"><h4>Instructions</h4></li>
-    {{#each recipes}}
-    <li class="collection-item">
-        <span class="title color">Step 1</span>
-        <p class="color">
-            {{instructions}}
-        </p>
-    </li>
-    {{/each}}
 </ul>
 
 </div>
@@ -90,7 +89,15 @@
 </footer>
 
 <script>
-    if ($('.prep')){
-        console.log($('.prep').text())
-    }
+    $(document).ready(function () {
+        $('#instructions').hide()
+        if ($('.prep')){
+            let text = $('#instructions').text().trim().split(",")
+            for(let i=0; i < text.length; i++){
+                let instruction = $("<li class='collection-item'><span class='title color'>Step " + (i+1) + ": </span><p class='color' id='instructions'>"+text[i]+"</p></li>")
+                console.log(text[0])
+                $('.append-instructions').append(instruction)
+            }          
+        }  
+    })
 </script>
