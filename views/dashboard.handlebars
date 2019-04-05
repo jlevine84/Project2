@@ -1,4 +1,4 @@
-<nav class="nav-extended">
+<nav class="nav-extended fixed">
   <div class="nav-wrapper">
     <a href="#!" class="brand-logo">Eat Me</a>
     <ul class="right hide-on-med-and-down">
@@ -17,7 +17,7 @@
   </div>
 </nav>
 
-<div class="row">
+<div class="row fixed margin-top">
 
   <div class="col s12 l3">
      <ul class="collapsible">
@@ -52,7 +52,10 @@
       </div>
     </div>
   </div>
+</div>
 
+<div class="row margin-top">
+  <div class="recipe-container">
   {{#each recipes}}
   <div class="card col l3 s6">
     <div class="card-image waves-effect waves-block waves-light">
@@ -77,11 +80,12 @@
         </li>
       </ul>
     </div>
-    <div class="card-action" id={{@index}}>
+    <div class="card-action" id={{id}}>
       <a href="#">Check out the recipe!</a>
     </div>
   </div>
   {{/each}}
+  </div>
 </div>
 
 <footer class="page-footer">
@@ -108,7 +112,6 @@
   <div class="footer-copyright">
     <div class="container">
       UNC Coding Bootcamp Project 2
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
     </div>
   </div>
 </footer>
@@ -162,9 +165,9 @@
     
   })
 
-  $( '.card-action' ).on( 'click', function () {
+  $('.card-action').on( 'click', function () {
     console.log( this.id )
-    window.location = "/recipe/" + ( parseInt( this.id ) + 1 );
+    window.location = "/recipe/" + ( parseInt( this.id ));
   } );
   $( '.btn-floating' ).on( 'click', function () {
     window.location = "/createRecipe/";
