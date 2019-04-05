@@ -12,10 +12,14 @@ $(document).ready(function () {
   let recipe = {};
   recipe.ingredients = [];
   recipe.instructions = [];
+  function Ingredient (quantity, material) {
+    this.quantity = quantity;
+    this.material = material;
+  }
 
   // Tom: Make HTML for this function to capture Serving Size
   $('.add-servingSize').click(function () {
-    recipe.servingSize = $('.servingSize-input').val();
+    recipe.servingSize = $('#servingSize-input').val();
   });
 
   $('.add-ingredient').click(function () {
@@ -26,9 +30,8 @@ $(document).ready(function () {
       let quantityToAdd = $('#quantity-input').val();
       // Grab ingredient field value.
       let ingredientToAdd = $('#ingredient-input').val();
-      let ingredient = {};
-      ingredient.quantity = quantityToAdd;
-      ingredient.material = ingredientToAdd;
+      let ingredient = new Ingredient(quantityToAdd, ingredientToAdd);
+
       // Push ingredient object to the array.
       recipe.ingredients.push(ingredient);
 
@@ -108,7 +111,7 @@ $(document).ready(function () {
     }
   });
   $('.add-servingSize').click(function () {
-    if ($('#ervingSize-input').val() !== '') {
+    if ($('#servingSize-input').val() !== '') {
       $('.servingSize').show();
       var value = $('#servingSize-input').val();
       recipe.summary = value;
@@ -147,7 +150,8 @@ $(document).ready(function () {
   });
 
   $('#add-recipe').on('click', (event) => {
-    // recipe.instructions = recipe.instructions.join(',');
+    recipe.instructions = recipe.instructions.join(',');
+    recipe.ingredients = JSON.stringify(recipe.ingredients);
     event.preventDefault();
     $.ajax({
       type: 'POST',

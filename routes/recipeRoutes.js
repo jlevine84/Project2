@@ -13,6 +13,14 @@ module.exports = (router) => {
       });
   });
 
+  router.get('/api/recipe/:id', (req, res) => {
+    db.Recipe.findOne({ where: { id: req.params.id } }).then((response) => {
+      res.json(response);
+    }).catch((err) => {
+      res.json(err);
+    });
+  });
+
   // GET route for searched data:
   router.get('/api/recipe/search?', (req, res) => {
     if (req.query.recipe) {
@@ -46,18 +54,17 @@ module.exports = (router) => {
   // POST route for creating new Recipe data:
   router.post('/api/recipe', (req, res) => {
     let ingredients = req.body.ingredients;
+    ingredients = JSON.parse(ingredients);
     db.Recipe.create(req.body)
       .then((response) => {
-        res.json(response);
-        let recipeId = response.id;
+        const recipeId = response.id;
         ingredients.forEach(element => {
           element.RecipeId = recipeId;
         });
         ingredients.forEach(element => {
-          db.Ingredient.create(element).then(result => {
-            res.json(result);
-          }).catch(err => res.json(err));
+          db.Ingredient.create(element).then(result => {}).catch(err => res.json(err));
         });
+        res.json(response);
       })
       .catch((err) => {
         res.json(err);
