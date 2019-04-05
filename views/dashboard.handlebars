@@ -1,5 +1,4 @@
 <nav class="nav-extended fixed">
-  <a href="#!" class="brand-logo">Eat Me</a>
   <div class="nav-wrapper">
     <a href="#!" class="brand-logo">Eat Me</a>
     <ul class="right hide-on-med-and-down">
@@ -29,14 +28,14 @@
         <div class="collapsible-header">Recipes</div>
         <div class="collapsible-body" style="background: rgb(236, 144, 147)">
           <input style="border: 1px solid grey" placeholder="Search for recipes" type="text" id="recipe-search"></input>
-          <button class="btn" id="recSearchBtn">Search</button>
+          <button class="btn modal-trigger" data-target="searchmodal" id="recSearchBtn">Search</button>
           </div>
       </li>
       <li>
         <div class="collapsible-header">Ingredients</div>
         <div class="collapsible-body" style="background: rgb(236, 144, 147)">
           <input style="border: 1px solid grey" placeholder="Search by ingredients" type="text" id="ingredient-search"></input>
-          <button class="btn" id="ingSearchBtn">Search</button>
+          <button class="btn modal-trigger" data-target="searchmodal" id="ingSearchBtn">Search</button>
         </div>
       </li>
     </ul>
@@ -132,33 +131,36 @@
 
   $(document).ready(function(){
     $('.collapsible').collapsible();
+    $('.modal').modal();
   });
 
   $('#recSearchBtn').on('click', function(event) {
     event.preventDefault();
     let recSearch = $('#recipe-search').val();
+    recSearch = recSearch.split(' ').join('+');
     let apiRecSearch = `recipe=${recSearch}`
     // Ajax Call 
     $.ajax({
       type: 'GET',
       url: `/api/recipe/search?${apiRecSearch}`,
     }).then((result) => {
-      // Toggle search modal with data returned.
-        $('#user-info').modal('show');
+      // Propagate data to modal
+      console.log(result)
     })
   });
 
     $('#ingSearchBtn').on('click', function(event) {
     event.preventDefault();
     let ingSearch = $('#ingredient-search').val();
+    ingSearch = ingSearch.split(' ').join('+');
     let apiRecSearch = `recipe=${ingSearch}`
     //Ajax Call. Toggle search modal with data returned.
     $.ajax({
       type: 'GET',
       url: `/api/recipe/search?${apiRecSearch}`,
     }).then((result) => {
-      // Toggle search modal with data returned.
-        $('#user-info').modal('show');
+      // Propagate data to modal
+      console.log(result) 
     })
     
   })

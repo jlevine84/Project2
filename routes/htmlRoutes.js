@@ -118,7 +118,6 @@ module.exports = (db) => {
         email: req.body.email
       }
     }).then(result => {
-      console.log(result);
       res.json(result);
     });
   });
