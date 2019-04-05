@@ -1,11 +1,4 @@
-<nav class="recipe-page nav-fixed">
-    <div class="nav-wrapper">
-        <a href="dashboard.handlebars" class="brand-logo">Add Your Recipe</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/dashboard">Dashboard</a></li>
-        </ul>
-    </div>
-</nav>
+{{> nav/nav-block}}
 
     <div class="row fixed overflow create-margin-top">
          <div class="col l4 m8 s8 offset-m2 offset-s2 offset-l2">
@@ -121,35 +114,5 @@
         </div>
     </div>
 
-<footer class="page-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Eat Me</h5>
-                <p class="grey-text text-lighten-4">
-                    Our mission is to bring you recipes and easy measurement conversions so that
-                    you can get cooking. No life-stories, no fluff, just food.
-                </p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">The Team</h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/parallelam">Wes Hatley</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/jlevine84">Jeff Levine</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/ericksont11">Tom Erickson</a>
-                    </li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/jgwynn36">Jacqueline Gwynn</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-copyright">
-        <div class="container">
-            UNC Coding Bootcamp Project 2
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
-    </div>
-</footer>
-  <script src="/assets/js/createRecipe.js"></script>
+{{> nav/footer-block}}
+<script src="/assets/js/createRecipe.js"></script>

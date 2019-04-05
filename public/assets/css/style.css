@@ -94,7 +94,17 @@ img {
 }
 
 .add {
-  height: 45.5vh
+  height: 40vh
+}
+
+.add-image {
+  height: 20vh
+}
+
+.mission {
+  margin-left: 20vw;
+  width: 60%;
+  text-align: center;
 }
 
 .dropdown-content {

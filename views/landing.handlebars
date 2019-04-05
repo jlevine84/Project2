@@ -46,7 +46,7 @@
                     </li>
                 {{else}}
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="login-modal">Login</a>
+                        <a class="nav-link modal-trigger" href="#" data-target="modal1">Login</a>
                     </li>
                     
                     <li class="nav-item">
@@ -61,3 +61,10 @@
 </div>
 
 {{> modal/login-block}}
+
+<script>
+    $(document).ready(function(){
+        $('.modal').modal();
+        
+    });
+</script>
