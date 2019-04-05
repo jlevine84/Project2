@@ -1,5 +1,6 @@
 $(document).ready(function () {
   var counter = 1;
+  $('.servingSize').hide();
   $('.difficulty').hide();
   $('.prep').hide();
   $('.cook').hide();
@@ -103,6 +104,16 @@ $(document).ready(function () {
       recipe.summary = value;
       $('.summary-section').empty();
       $('.summary-section').append(value);
+      $(this).text('EDIT');
+    }
+  });
+  $('.add-servingSize').click(function () {
+    if ($('#ervingSize-input').val() !== '') {
+      $('.servingSize').show();
+      var value = $('#servingSize-input').val();
+      recipe.summary = value;
+      $('.servingSize').empty();
+      $('.servingSize').append('Serving Size: ' + value);
       $(this).text('EDIT');
     }
   });
