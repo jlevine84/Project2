@@ -71,7 +71,7 @@ hr {
 
 body {
   display: flex;
-  min-height: 100%;
+  min-height: 200%;
   flex-direction: column;
   background-image: url("/assets/img/full-bloom.png")
 }
@@ -84,10 +84,6 @@ img {
   height: 30vh;
 }
 
-.add-image {
-  height: 35vh;
-}
-
 .summary {
   text-decoration: underline
 }
@@ -98,7 +94,7 @@ img {
 }
 
 .add {
-  height: 55.5vh
+  height: 45.5vh
 }
 
 .dropdown-content {
@@ -157,6 +153,10 @@ input {
   padding-bottom: 10%
 }
 
+.recipe-image {
+  height: 200px
+}
+
 .recipe-card {
   margin-top: 20vh;
   position: fixed;
@@ -169,4 +169,61 @@ input {
   margin-bottom: 0;
   padding-top: 2vh;
   padding-bottom: 2vh;
+}
+
+.card {
+  z-index: 10
+}
+
+
+@media screen and (min-width: 992px) {
+  .fixed {
+    position: fixed;
+    z-index: 2;
+  }
+
+  .overflow {
+    overflow-y: scroll;
+    top: 0;
+    bottom:0;
+  }
+  .nav-fixed {
+    position: fixed;
+    z-index: 2;
+  }
+
+  .nav-fixed {
+    position: fixed;
+    z-index: 20;
+  }
+
+  .nav-extended, .recipe-page {
+    z-index:11
+  }
+  
+  .margin-top {
+    margin-top: 75px;
+  }
+
+  .create-margin-top {
+    margin-top: 85px;
+  }
+  
+  .page-footer {
+    position: relative;
+    margin-top: 150px;
+    bottom: 0 !important;
+    z-index: 2;
+    width: 100%;
+    padding: 0 !important;
+  }
+  
+  .recipe-container {
+    margin-left: 25vw;
+  }
+
+  .create-recipe-container {
+    margin-left: 50vw
+  }
+  
 }

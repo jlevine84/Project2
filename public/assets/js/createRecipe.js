@@ -52,7 +52,7 @@ $(document).ready(function () {
     if ($('#image-input').val() !== '') {
       $('#userImage').remove();
       var image = $('#image-input').val();
-      recipe.image = image;
+      recipe.mediaLink = image;
       var cardImage = $('<img src=' + image + " id='userImage'>");
       $('.card-image').append(cardImage);
       $('#cardImage').css('height', '0');
@@ -107,7 +107,7 @@ $(document).ready(function () {
     if ($('#servingSize-input').val() !== '') {
       $('.servingSize').show();
       var value = $('#servingSize-input').val();
-      recipe.summary = value;
+      recipe.summarySection = value;
       $('.servingSize').empty();
       $('.servingSize').append('Serving Size: ' + value);
       $(this).text('EDIT');
