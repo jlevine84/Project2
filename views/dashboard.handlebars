@@ -132,38 +132,61 @@
   $(document).ready(function(){
     $('.collapsible').collapsible();
     $('.modal').modal();
-  });
 
-  $('#recSearchBtn').on('click', function(event) {
-    event.preventDefault();
-    let recSearch = $('#recipe-search').val();
-    recSearch = recSearch.split(' ').join('+');
-    let apiRecSearch = `recipe=${recSearch}`
-    // Ajax Call 
-    $.ajax({
-      type: 'GET',
-      url: `/api/recipe/search?${apiRecSearch}`,
-    }).then((result) => {
-      // Propagate data to modal
-      console.log(result)
-    })
-  });
+      $('#recSearchBtn').on('click', function(event) {
+      event.preventDefault();
+      let recSearch = $('#recipe-search').val();
+      recSearch = recSearch.split(' ').join('+');
+      let apiRecSearch = `?recipe=${recSearch}`
+      $('#recipe-search').val('')
+      // Ajax Call 
+      $.ajax({
+        type: 'GET',
+        url: `/api/search${apiRecSearch}`,
+      }).then((result) => {
+        $('#loading').hide()
+        // Propagate data to modal
+        const searchItem = $('#searchitem');
+        for(i = 0; i< result.length; i++) {
+          let newItem = $('<a>').attr('href', `/recipe/${result[i].id}`).text(`Recipe: ${result[i].name}`);
+          let newBreak = $('<br>')
+          searchItem.append(newItem, newBreak)
+        }
+      });
+    });
 
-    $('#ingSearchBtn').on('click', function(event) {
+  $('#ingSearchBtn').on('click', function(event) {
     event.preventDefault();
     let ingSearch = $('#ingredient-search').val();
     ingSearch = ingSearch.split(' ').join('+');
-    let apiRecSearch = `recipe=${ingSearch}`
+    let apiRecSearch = `?ingredient=${ingSearch}`
+    $('#ingredient-search').val('')
     //Ajax Call. Toggle search modal with data returned.
     $.ajax({
       type: 'GET',
-      url: `/api/recipe/search?${apiRecSearch}`,
+      url: `/api/search${apiRecSearch}`,
     }).then((result) => {
+      $('#loading').hide()
       // Propagate data to modal
-      console.log(result) 
-    })
-    
-  })
+      // console.log(result);
+      const recipeArray = [];
+      for (i = 0; i < result.length; i++) {
+        recipeArray.push(result[i].Recipe)
+      }
+      
+      const searchItem = $('#searchitem');
+
+      for(i = 0; i < recipeArray.length; i++){
+        let newItem = $('<a>').attr('href', `/recipe/${recipeArray[i].id}`).text(`Recipe: ${recipeArray[i].name}`);
+        let newBreak = $('<br>')
+        searchItem.append(newItem, newBreak)
+        }
+      });
+      
+    });
+  });
+
+
 
   $('.card-action').on( 'click', function () {
     console.log( this.id )

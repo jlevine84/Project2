@@ -187,6 +187,10 @@ input {
     top: 0;
     bottom:0;
   }
+  .nav-fixed {
+    position: fixed;
+    z-index: 2;
+  }
 
   .nav-fixed {
     position: fixed;
