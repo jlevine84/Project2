@@ -141,8 +141,8 @@
       type: 'GET',
       url: `/api/recipe/search?${apiRecSearch}`,
     }).then((result) => {
-      // Toggle search modal with data returned.
-        
+      // Propagate data to modal
+      console.log(result)
     })
   });
 
@@ -156,8 +156,8 @@
       type: 'GET',
       url: `/api/recipe/search?${apiRecSearch}`,
     }).then((result) => {
-      // Toggle search modal with data returned.
-        
+      // Propagate data to modal
+      console.log(result) 
     })
     
   })
