@@ -179,20 +179,27 @@ input {
 @media screen and (min-width: 992px) {
   .fixed {
     position: fixed;
-    z-index: 2
+    z-index: 2;
+    overflow-y: scroll;
+    top: 0;
+    bottom:0;
   }
 
-  .nav-extended {
+  .nav-extended, .recipe-page {
     z-index:11
   }
   
   .margin-top {
     margin-top: 75px;
   }
+
+  .create-margin-top {
+    margin-top: 85px;
+  }
   
   .page-footer {
     position: relative;
-    margin-top: 75px;
+    margin-top: 150px;
     bottom: 0 !important;
     z-index: 2;
     width: 100%;
@@ -201,6 +208,10 @@ input {
   
   .recipe-container {
     margin-left: 25vw;
+  }
+
+  .create-recipe-container {
+    margin-left: 50vw
   }
   
 }
