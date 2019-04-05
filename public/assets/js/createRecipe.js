@@ -52,7 +52,7 @@ $(document).ready(function () {
     if ($('#image-input').val() !== '') {
       $('#userImage').remove();
       var image = $('#image-input').val();
-      recipe.image = image;
+      recipe.mediaLink = image;
       var cardImage = $('<img src=' + image + " id='userImage'>");
       $('.card-image').append(cardImage);
       $('#cardImage').css('height', '0');
