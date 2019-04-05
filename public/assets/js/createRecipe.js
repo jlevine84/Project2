@@ -107,7 +107,7 @@ $(document).ready(function () {
     if ($('#servingSize-input').val() !== '') {
       $('.servingSize').show();
       var value = $('#servingSize-input').val();
-      recipe.summary = value;
+      recipe.summarySection = value;
       $('.servingSize').empty();
       $('.servingSize').append('Serving Size: ' + value);
       $(this).text('EDIT');
