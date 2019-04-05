@@ -17,7 +17,6 @@ $(document).ready(function () {
     this.material = material;
   }
 
-  // Tom: Make HTML for this function to capture Serving Size
   $('.add-servingSize').click(function () {
     recipe.servingSize = $('#servingSize-input').val();
   });
@@ -25,18 +24,13 @@ $(document).ready(function () {
   $('.add-ingredient').click(function () {
     $('.ingredient-card').show();
     if ($('#ingredient-input').val() !== '') {
-      // Tom: Make quantity field for each new ingredient
-      // Grab quantity field value.
       let quantityToAdd = $('#quantity-input').val();
-      // Grab ingredient field value.
       let ingredientToAdd = $('#ingredient-input').val();
       let ingredient = new Ingredient(quantityToAdd, ingredientToAdd);
 
-      // Push ingredient object to the array.
       recipe.ingredients.push(ingredient);
 
       var cardIngredient = $("<li class='collection-item color close'>" + '<i class="material-icons right close">close</i>' + quantityToAdd + '  ' + ingredientToAdd + '</li>');
-      // Tom: Make the quantity show up with the ingredient on its' card.
       $('.ingredient-card').append(cardIngredient);
       $('.ingredient-card').append(cardIngredient);
       $('#quantity-input').val('');
@@ -47,7 +41,6 @@ $(document).ready(function () {
     $('.direction-card').show();
     if ($('#direction-input').val() !== '') {
       var direction = $('#direction-input').val();
-      // Push direction to the instructions Array
       recipe.instructions.push(direction);
       var cardDirection = $("<li class='collection-item color close'>" + '<i class="material-icons right close">close</i>' + 'Step ' + counter + ': ' + direction + '</li>');
       $('.direction-card').append(cardDirection);
