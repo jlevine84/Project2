@@ -2,24 +2,32 @@
   <div class="nav-wrapper">
     <a href="#!" class="brand-logo">Eat Me</a>
     <ul class="right hide-on-med-and-down">
-      <li><i class="material-icons prefix">search</i></li>
-      <li>
-        <div class="input-field">
-          <!-- Turn Search function into drop down.
-            Search parameters for drop down: Recipe Name, Ingredient-->
-          <div class="input-field">
-            <input type="text" placeholder="Search" id="autocomplete-input" class="autocomplete">
-          </div>
+      {{#if isloggedin}}
       </li>
-      <li><a href="sass.html"><i class="material-icons">notifications</i></a></li>
-      <li><a href="badges.html">Login</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">My Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/search">Search</a>
+      </li>
+      {{else}}
+      <li class="nav-item">
+        <a class="nav-link" href="/" id="login-modal">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register" data-register={{register}}>Register</a>
+      </li>
+      {{/if}}
     </ul>
   </div>
 </nav>
 
 <div class="row fixed margin-top">
 
-  <div class="col s12 l3">
+  <div class="col s12 m8 offset-m2 l3">
      <ul class="collapsible">
       <li>
         <div class="header" style="background: white; text-align: center"><span><strong>Search for Recipes or by Ingredients!</strong></span></div>
@@ -68,7 +76,7 @@
     <div class="card-reveal">
       <span class="card-title summary grey-text text-darken-4">{{name}}<i class="material-icons right">close</i></span>
       <ul>
-        <li>Prep Time: {{time}}</li>
+        <li>Prep Time: {{prepTime}}</li>
         <li>Cook Time: {{cookTime}}</li>
         <li>Difficulty Rating: {{difficulty}}</li>
         <li>Serving Size: {{servingSize}}</li>
@@ -83,33 +91,7 @@
   </div>
 </div>
 
-<footer class="page-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Eat Me</h5>
-        <p class="grey-text text-lighten-4">Our mission is to bring you recipes and easy measurement conversions so that
-          you can get cooking. No life-stories, no fluff, just food.
-        </p>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">The Team</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="https://github.com/parallelam">Wes Hatley</a></li>
-          <li><a class="grey-text text-lighten-3" href="https://github.com/jlevine84">Jeff Levine</a></li>
-          <li><a class="grey-text text-lighten-3" href="https://github.com/ericksont11">Tom Erickson</a></li>
-          <li><a class="grey-text text-lighten-3" href="https://github.com/jgwynn36">Jacqueline Gwynn</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-copyright">
-    <div class="container">
-      UNC Coding Bootcamp Project 2
-    </div>
-  </div>
-</footer>
+{{> nav/footer-block}}
 
 {{> modal/search}}
 
