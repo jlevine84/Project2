@@ -180,9 +180,17 @@ input {
   .fixed {
     position: fixed;
     z-index: 2;
+  }
+
+  .overflow {
     overflow-y: scroll;
     top: 0;
     bottom:0;
+  }
+
+  .nav-fixed {
+    position: fixed;
+    z-index: 20;
   }
 
   .nav-extended, .recipe-page {
