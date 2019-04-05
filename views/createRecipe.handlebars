@@ -1,4 +1,4 @@
-<nav class="recipe-page">
+<nav class="recipe-page fixed">
     <div class="nav-wrapper">
         <a href="dashboard.handlebars" class="brand-logo">Add Your Recipe</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -7,7 +7,7 @@
     </div>
 </nav>
 
-    <div class="row">
+    <div class="row fixed create-margin-top">
          <div class="col l4 m8 s8 offset-m2 offset-s2 offset-l2">
             <div class="card">
                 <div class="card-title center-align">
@@ -44,16 +44,18 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="col l4 m8 s8 offset-m2 offset-s2">
-             <div class="card blue-grey darken-1">
+    <div class="row">
+        <div class="create-recipe-container create-margin-top">
+             <div class="card blue-grey darken-1 card col l7 s8 offset-s2">
                 <div class="card-content white-text">
                     <span class="card-title">Add Name</span>
                     <input placeholder="Enter the name of your recipe" class="left-align" id="name-input" type="text" class="validate">
                     <button class="btn add-name right center-btn">Add</button>
                 </div>
             </div>
-            <div class="card blue-grey darken-1">
+            <div class="card blue-grey darken-1 card col l7 s8 offset-s2">
                 <div class="card-content white-text">
                     <span class="card-title">Add Ingredients</span>
                     <input placeholder="Enter the amount of each ingredient (ex. 1 Cup)" class="left-align" id="quantity-input" type="text" class="validate">
@@ -61,49 +63,49 @@
                     <button class="btn add-ingredient right center-btn">Add</button>
                 </div>
             </div>
-            <div class="card blue-grey darken-1">
+            <div class="card blue-grey darken-1 card col l7 s8 offset-s2">
                 <div class="card-content white-text">
                     <span class="card-title">Add Serving Size</span>
                     <input placeholder="Enter how many people your recipe is for" class="left-align" id="servingSize-input" type="text" class="validate">
                     <button class="btn add-servingSize right center-btn">Add</button>
                 </div>
             </div>
-            <div class="card blue-grey darken-1">
+            <div class="card blue-grey darken-1 card col l7 s8 offset-s2">
                 <div class="card-content white-text">
                     <span class="card-title">Add Directions</span>
                     <input placeholder="Enter each step here one-by-one" class="left-align" id="direction-input" type="text" class="validate">
                     <button class="btn add-direction right">Add</button>
                 </div>
             </div>
-            <div class="card blue-grey darken-1">
+            <div class="card blue-grey darken-1 card col l7 s8 offset-s2">
                 <div class="card-content white-text">
                     <span class="card-title">Add Image</span>
                     <input placeholder="Enter link to your image here" class="left-align" id="image-input" type="text" class="validate">
                     <button class="btn add-image right">Add</button>
                 </div>
             </div>
-            <div class="card blue-grey darken-1">
+            <div class="card blue-grey darken-1 card col l7 s8 offset-s2">
                 <div class="card-content white-text">
                     <span class="card-title">How long does it take to prep?</span>
                     <input placeholder="Enter how long it takes to prep" class="left-align" id="prep-input" type="text" class="validate">
                     <button class="btn add-prep right">Add</button>
                 </div>
             </div>
-            <div class="card blue-grey darken-1">
+            <div class="card blue-grey darken-1 card col l7 s8 offset-s2">
                 <div class="card-content white-text">
                     <span class="card-title">How long does it take to cook?</span>
                     <input placeholder="Enter how long it takes to cook" class="left-align" id="cook-input" type="text" class="validate">
                     <button class="btn add-cook right">Add</button>
                 </div>
             </div>
-            <div class="card blue-grey darken-1 card-padding">
+            <div class="card blue-grey darken-1 card-padding card col l7 s8 offset-s2">
                 <div class="card-content white-text">
                     <span class="card-title">Add a story or additional information</span>
                     <textarea id="summary-input" name="subject" placeholder="This is where you can share intersting facts about your recipe. You could put where you came across it, it's history, a story about making it. Whatever you'd like!" style="height:20vh"></textarea>
                     <button class="btn add-summary right">Add</button>
                 </div>
             </div>
-            <div class="card blue-grey darken-1">
+            <div class="card blue-grey darken-1 card col l7 s8 offset-s2">
                 <div class="card-content white-text">
                     <span class="card-title">Give a difficulty rating!</span>
                     <button class='dropdown-trigger btn' data-target='dropdown1'>Choose a difficulty</button>
