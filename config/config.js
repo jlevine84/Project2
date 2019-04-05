@@ -2,7 +2,7 @@ module.exports = {
   development: {
     username: process.env.SEQUELIZE_USER,
     password: process.env.SEQUELIZE_PASSWORD,
-    database: 'xb0q7cy769y75d7z',
+    database: 'project2_dev',
     details: {
       host: process.env.SEQUELIZE_HOST,
       port: 3306,
