@@ -31,10 +31,11 @@ $(document).ready(function () {
       // Push ingredient object to the array.
       recipe.ingredients.push(ingredient);
 
-      var cardIngredient = $("<li class='collection-item color close'>" + '<i class="material-icons right close">close</i>' + ingredient + '</li>');
+      var cardIngredient = $("<li class='collection-item color close'>" + '<i class="material-icons right close">close</i>' + quantityToAdd + '  ' + ingredientToAdd + '</li>');
       // Tom: Make the quantity show up with the ingredient on its' card.
       $('.ingredient-card').append(cardIngredient);
-      $('quantity-input').val('');
+      $('.ingredient-card').append(cardIngredient);
+      $('#quantity-input').val('');
       $('#ingredient-input').val('');
     }
   });
