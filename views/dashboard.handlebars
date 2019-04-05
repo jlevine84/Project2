@@ -114,6 +114,8 @@
   </div>
 </footer>
 
+{{> modal/search}}
+
 <script>
 
   $('.card-action').on('click', function(){
@@ -129,9 +131,9 @@
     $('.collapsible').collapsible();
   });
 
-  $('.recSearchBtn').on('click', function(event) {
+  $('#recSearchBtn').on('click', function(event) {
     event.preventDefault();
-    let recSearch = $('.recipe-search').val();
+    let recSearch = $('#recipe-search').val();
     let apiRecSearch = `recipe=${recSearch}`
     // Ajax Call 
     $.ajax({
@@ -139,13 +141,22 @@
       url: `/api/recipe/search?${apiRecSearch}`,
     }).then((result) => {
       // Toggle search modal with data returned.
+        $('#user-info').modal('show');
     })
   });
 
-    $('.ingSearchBtn').on('click', function(event) {
+    $('#ingSearchBtn').on('click', function(event) {
     event.preventDefault();
-    let ingSearch = $('.ingredient-search').val();
+    let ingSearch = $('#ingredient-search').val();
+    let apiRecSearch = `recipe=${ingSearch}`
     //Ajax Call. Toggle search modal with data returned.
+    $.ajax({
+      type: 'GET',
+      url: `/api/recipe/search?${apiRecSearch}`,
+    }).then((result) => {
+      // Toggle search modal with data returned.
+        $('#user-info').modal('show');
+    })
     
   })
 
