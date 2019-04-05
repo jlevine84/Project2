@@ -143,7 +143,7 @@ $(document).ready(function () {
   });
 
   $('#add-recipe').on('click', (event) => {
-    recipe.instructions = recipe.instructions.join(',');
+    recipe.instructions = recipe.instructions.join('|');
     recipe.ingredients = JSON.stringify(recipe.ingredients);
     event.preventDefault();
     $.ajax({
