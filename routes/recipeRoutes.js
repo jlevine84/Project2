@@ -1,5 +1,7 @@
 // const router = require('express').Router();
 const db = require('../models');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = (router) => {
   // GET route for all Recipe data:
@@ -22,9 +24,10 @@ module.exports = (router) => {
   });
 
   // GET route for searched data:
-  router.get('/api/recipe/search?', (req, res) => {
+  router.get('/api/search', (req, res) => {
+    console.log(req.query);
     if (req.query.recipe) {
-      let search = { where: { name: req.query.recipe } };
+      let search = { where: { name: { [Op.like]: `%${req.query.recipe}%` } } };
       db.Recipe.findAll(search)
         .then((response) => {
           res.json(response);
@@ -72,13 +75,8 @@ module.exports = (router) => {
   });
 
   // Post route for adding ingredients
-  router.post('/api/ingredient', (req, res) => {
-    db.Ingredient.create(req.body)
-      .then((response) => {
-        res.json(response);
-      }).catch((err) => {
-        res.json(err);
-      });
+  router.get('/api/ingredient', (req, res) => {
+    console.log(req.query);
   });
 
   // PUT route for updating Recipe data:
