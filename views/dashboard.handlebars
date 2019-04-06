@@ -28,30 +28,14 @@
 <div class="row fixed margin-top">
 
   <div class="col s12 m8 offset-m2 l3">
-     <ul class="collapsible">
-      <li>
-        <div class="header" style="background: white; text-align: center"><span>Search for Recipes or by Ingredients!</span></div>
-      </li>
-      <li class="active">
-        <div class="collapsible-header">Recipes</div>
-        <div class="collapsible-body" style="background:white">
-          <input style="border: 1px solid rgb(236, 144, 147)" placeholder="Search for recipes" type="text" id="recipe-search"></input>
-          <button class="btn modal-trigger" data-target="searchmodal" id="recSearchBtn">Search</button>
-          </div>
-      </li>
-      <li>
-        <div class="collapsible-header">Ingredients</div>
-        <div class="collapsible-body" style="background:white">
-          <input style="border: 1px solid rgb(236, 144, 147)" placeholder="Search by ingredients" type="text" id="ingredient-search"></input>
-          <button class="btn modal-trigger" data-target="searchmodal" id="ingSearchBtn">Search</button>
-        </div>
-      </li>
-    </ul>
+    
 
     <div class="card add">
+      <div class="card-title center-align">
+        <div class="header" style="background: rgb(83, 81, 81); text-align: center; color: white"><span>Add a Recipe</span></div>
+      </div>
       <div class="card-image">
         <img src="/assets/img/kitchen.jpg" class="add-image">
-        <span class="card-title">Add a recipe</span>
         <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
       </div>
       <div class="card-content">
@@ -59,7 +43,29 @@
         </p>
       </div>
     </div>
+    <div class="card">
+      <div class="card-title">
+         <div class="header" style="background: rgb(83, 81, 81); text-align: center; color: white"><span>Search</span></div>
+      </div>
+      <div class="card-tabs">
+        <ul class="tabs tabs-fixed-width">
+          <li class="tab"><a class="active" href="#tab1">For Recipes</a></li>
+          <li class="tab"><a href="#tab2">By Ingredients</a></li>
+        </ul>
+      </div>
+      <div class="card-content grey lighten-4">
+        <div id="tab1">
+          <input placeholder="Type the name of a recipe" type="text" id="recipe-search"></input>
+          <button class="btn modal-trigger" data-target="searchmodal" id="recSearchBtn">Search</button>
+        </div>
+        <div id="tab2">
+          <input placeholder="Type the ingredient you're searching for" type="text" id="ingredient-search"></input>
+          <button class="btn modal-trigger" data-target="searchmodal" id="ingSearchBtn">Search</button>
+        </div>
+      </div>
+    </div>
   </div>
+  
 </div>
 
 <div class="row margin-top">
@@ -78,9 +84,8 @@
       <ul>
         <li>Prep Time: {{prepTime}}</li>
         <li>Cook Time: {{cookTime}}</li>
-        <li>Difficulty Rating: {{difficulty}}</li>
+        <li class="difficulty{{@index}} difficulty">{{difficulty}}</li>
         <li>Serving Size: {{servingSize}}</li>
-        <li>Description: {{summarySection}}</li>
       </ul>
     </div>
     <div class="card-action" id={{id}}>
@@ -96,17 +101,38 @@
 {{> modal/search}}
 
 <script>
+  $(document).ready(function () {
+    $('ul.tabs').tabs();
 
-  $('.card-action').on('click', function(){
-    console.log(this.id)
-    window.location = "/recipe/"+(parseInt(this.id)+1);
-  });
+    let length = $('.difficulty').text()
+    for(let i=0; i < length.length; i++){
+      let value = $('.difficulty'+i).text()
+      $('.difficulty'+i).empty()
+      if (value == 1) {
+        $('.difficulty'+i).append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i>");
+      }
+      if (value == 2) {
+        $('.difficulty'+i).append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i>");
+      }
+      if (value == 3) {
+        $('.difficulty'+i).append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i>");
+      }
+      if (value == 4) {
+        $('.difficulty'+i).append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i>");
+      }
+      if (value == 5) {
+        $('.difficulty'+i).append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i>");
+      }
+    }
+    $('.card-action').on('click', function(){
+      console.log(this.id)
+      window.location = "/recipe/"+(parseInt(this.id)+1);
+    });
 
-  $('.btn-floating').on('click', function(){
-    window.location = "/createRecipe/";
-  });
+    $('.btn-floating').on('click', function(){
+      window.location = "/createRecipe/";
+    });
 
-  $(document).ready(function(){
     $('.collapsible').collapsible();
     $('.modal').modal();
 
@@ -133,17 +159,17 @@
       });
     });
 
-  $('#ingSearchBtn').on('click', function(event) {
-    event.preventDefault();
-    let ingSearch = $('#ingredient-search').val();
-    ingSearch = ingSearch.split(' ').join('+');
-    let apiRecSearch = `?ingredient=${ingSearch}`
-    $('#ingredient-search').val('')
-    //Ajax Call. Toggle search modal with data returned.
-    $.ajax({
-      type: 'GET',
-      url: `/api/search${apiRecSearch}`,
-    }).then((result) => {
+    $('#ingSearchBtn').on('click', function(event) {
+      event.preventDefault();
+      let ingSearch = $('#ingredient-search').val();
+      ingSearch = ingSearch.split(' ').join('+');
+      let apiRecSearch = `?ingredient=${ingSearch}`
+      $('#ingredient-search').val('')
+      //Ajax Call. Toggle search modal with data returned.
+      $.ajax({
+        type: 'GET',
+        url: `/api/search${apiRecSearch}`,
+      }).then((result) => {
 
       $('#loading').hide()
       // Propagate data to modal
@@ -163,20 +189,20 @@
       });
       
     });
+
+
+    $('#closemodal').on('click', function(event) {
+      event.preventDefault();
+      $('#searchitem').text('');
+      $('#loading').show();
+    })
+
+    $('.card-action').on( 'click', function () {
+      console.log( this.id )
+      window.location = "/recipe/" + ( parseInt( this.id ));
+    });
+    $( '.btn-floating' ).on( 'click', function () {
+      window.location = "/createRecipe/";
+    });
   });
-
-  $('#closemodal').on('click', function(event) {
-    event.preventDefault();
-    $('#searchitem').text('');
-    $('#loading').show();
-  })
-
-  $('.card-action').on( 'click', function () {
-    console.log( this.id )
-    window.location = "/recipe/" + ( parseInt( this.id ));
-  } );
-  $( '.btn-floating' ).on( 'click', function () {
-    window.location = "/createRecipe/";
-  } );
-
 </script>

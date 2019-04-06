@@ -81,7 +81,7 @@ main {
 }
 
 img {
-  height: 30vh;
+  height: 32vh;
 }
 
 .summary {
@@ -94,11 +94,11 @@ img {
 }
 
 .add {
-  height: 40vh
+  height: 48vh
 }
 
 .add-image {
-  height: 20vh
+  height: 30vh
 }
 
 .mission {
@@ -182,29 +182,32 @@ input {
 }
 
 .card {
-  z-index: 10
+  z-index: 3;
 }
 
+.card-content {
+  padding: 12px !important
+}
+
+input[id=recipe-search] {
+  color:#EE6E73;
+}
+
+input[id=ingredient-search] {
+  color:#EE6E73;
+}
 
 @media screen and (min-width: 992px) {
-  .fixed {
-    position: fixed;
-    z-index: 2;
-  }
 
   .overflow {
     overflow-y: scroll;
     top: 0;
     bottom:0;
   }
-  .nav-fixed {
-    position: fixed;
-    z-index: 2;
-  }
 
   .nav-fixed {
     position: fixed;
-    z-index: 20;
+    z-index: 4;
   }
 
   .nav-extended, .recipe-page {
@@ -221,11 +224,16 @@ input {
   
   .page-footer {
     position: relative;
-    margin-top: 150px;
+    margin-top: 10px;
     bottom: 0 !important;
     z-index: 2;
     width: 100%;
     padding: 0 !important;
+  }
+
+  .fixed {
+    position: fixed;
+    z-index: 2;
   }
 
   .page-footer-landing {
