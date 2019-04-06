@@ -12,7 +12,7 @@
             <div class="card-content">
                 <p class="prep">Prep Time: {{prepTime}}</p>
                 <p>Cook Time: {{cookTime}}</p>
-                <p>Difficulty: {{difficulty}}</p>
+                <p class="difficulty difficulty{{@index}}">{{difficulty}}</p>
                 <p>Serves {{servingSize}} People</p>
             </div>
             </div>
@@ -54,6 +54,27 @@
                 console.log(text[0])
                 $('.append-instructions').append(instruction)
             }          
+        }
+
+        let length = $('.difficulty').text()
+        for(let i=0; i < length.length; i++){
+            let value = $('.difficulty'+i).text()
+            $('.difficulty'+i).empty()
+            if (value == 1) {
+                $('.difficulty'+i).append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i> (Beginner)");
+            }
+            if (value == 2) {
+                $('.difficulty'+i).append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i> (Amateur)");
+            }
+            if (value == 3) {
+                $('.difficulty'+i).append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i> (Home Chef)");
+            }
+            if (value == 4) {
+                $('.difficulty'+i).append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i> (Professional Chef)");
+            }
+            if (value == 5) {
+                $('.difficulty'+i).append("Difficulty Rating: <i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i><i class='material-icons'>restaurant_menu</i> (Michelin Star Chef)");
+            }
         }  
     })
 </script>

@@ -59,11 +59,6 @@ $(document).ready(function () {
       $('#image-input').val('');
     }
   });
-  // $('.add-video').click(function () {
-  //   if ($('#video-input').val() !== '') {
-  //     $('.responsive-video').show();
-  //   }
-  // });
   $('.add-prep').click(function () {
     if ($('#prep-input').val() !== '') {
       $('.prep').show();
