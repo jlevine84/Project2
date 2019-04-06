@@ -141,6 +141,13 @@ select, textarea{
   margin-left: 30%
 }
 
+.center-text {
+  text-align: center;
+}
+
+.landing-image{
+  height:40vh
+}
 input {
   color: white
 }
